@@ -26,12 +26,13 @@ import CenteredSection from './CenteredSection';
 import Form from './Form';
 import Input from './Input';
 import Section from './Section';
-import messages from './messages';
 import { loadRepos } from '../App/actions';
-import { changeUsername } from './actions';
-import { makeSelectUsername } from './selectors';
-import reducer from './reducer';
-import saga from './saga';
+import reducer, {
+  makeSelectUsername,
+  changeUsername,
+  messages,
+  saga,
+} from './duck';
 
 const key = 'home';
 

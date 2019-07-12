@@ -5,10 +5,9 @@
  */
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import { FormattedMessage } from 'react-intl';
 
 import H1 from 'components/H1';
-import messages from './messages';
+import { Typography } from '@material-ui/core';
 import List from './List';
 import ListItem from './ListItem';
 import ListItemTitle from './ListItemTitle';
@@ -23,53 +22,36 @@ export default function FeaturePage() {
           content="Feature page of React.js Boilerplate application"
         />
       </Helmet>
-      <H1>
-        <FormattedMessage {...messages.header} />
-      </H1>
+      <H1> Features </H1>
       <List>
         <ListItem>
           <ListItemTitle>
-            <FormattedMessage {...messages.scaffoldingHeader} />
+            <Typography variant="h6">Chart</Typography>
           </ListItemTitle>
-          <p>
-            <FormattedMessage {...messages.scaffoldingMessage} />
-          </p>
         </ListItem>
 
         <ListItem>
           <ListItemTitle>
-            <FormattedMessage {...messages.feedbackHeader} />
+            <Typography variant="h6">Search</Typography>
           </ListItemTitle>
-          <p>
-            <FormattedMessage {...messages.feedbackMessage} />
-          </p>
         </ListItem>
 
         <ListItem>
           <ListItemTitle>
-            <FormattedMessage {...messages.routingHeader} />
+            <Typography variant="h6">Search with mix</Typography>
           </ListItemTitle>
-          <p>
-            <FormattedMessage {...messages.routingMessage} />
-          </p>
         </ListItem>
 
         <ListItem>
           <ListItemTitle>
-            <FormattedMessage {...messages.networkHeader} />
+            <Typography variant="h6">Prediction</Typography>
           </ListItemTitle>
-          <p>
-            <FormattedMessage {...messages.networkMessage} />
-          </p>
         </ListItem>
 
         <ListItem>
           <ListItemTitle>
-            <FormattedMessage {...messages.intlHeader} />
+            <Typography variant="h6">...</Typography>
           </ListItemTitle>
-          <p>
-            <FormattedMessage {...messages.intlMessage} />
-          </p>
         </ListItem>
       </List>
     </div>

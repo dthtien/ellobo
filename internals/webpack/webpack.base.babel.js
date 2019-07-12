@@ -1,9 +1,18 @@
 /**
  * COMMON WEBPACK CONFIGURATION
  */
-
+const dotenv = require('dotenv');
 const path = require('path');
 const webpack = require('webpack');
+
+const env = dotenv.config().parsed;
+
+// reduce it to a nice object, the same as before
+const envKeys = Object.keys(env).reduce((prev, next) => {
+  // eslint-disable-next-line no-param-reassign
+  prev[next] = JSON.stringify(env[next]);
+  return prev;
+}, {});
 
 module.exports = options => ({
   mode: options.mode,
@@ -111,14 +120,26 @@ module.exports = options => ({
     // Always expose NODE_ENV to webpack, in order to use `process.env.NODE_ENV`
     // inside your code for any environment checks; Terser will automatically
     // drop any unreachable code.
-    new webpack.EnvironmentPlugin({
-      NODE_ENV: 'development',
+    new webpack.DefinePlugin({
+      'process.env': {
+        ...envKeys,
+        NODE_ENV: JSON.stringify(process.env.NODE_ENV),
+      },
     }),
   ]),
   resolve: {
     modules: ['node_modules', 'app'],
     extensions: ['.js', '.jsx', '.react.js'],
     mainFields: ['browser', 'jsnext:main', 'main'],
+    alias: {
+      'app-components': path.resolve(__dirname, '../../app/components/'),
+      'app-redux': path.resolve(__dirname, '../../app/redux/'),
+      'app-actions': path.resolve(__dirname, '../../app/actions/'),
+      'app-api': path.resolve(__dirname, '../../app/api/'),
+    },
+  },
+  node: {
+    fs: 'empty',
   },
   devtool: options.devtool,
   target: 'web', // Make web variables accessible to webpack, e.g. window

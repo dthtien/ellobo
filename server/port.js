@@ -1,3 +1,6 @@
 const argv = require('./argv');
-
-module.exports = parseInt(argv.port || process.env.PORT || '3000', 10);
+require('dotenv').config();
+module.exports = parseInt(
+  argv.port || process.env.REACT_APP_PORT || '3002',
+  10,
+);

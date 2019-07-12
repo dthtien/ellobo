@@ -4,8 +4,8 @@
 
 import React from 'react';
 import loadable from 'utils/loadable';
-import LoadingIndicator from 'components/LoadingIndicator';
+import LoadingIndicator from '../components/LoadingIndicator';
 
-export default loadable(() => import('./index'), {
+export const Dashboard = loadable(() => import('./Dashboard/index'), {
   fallback: <LoadingIndicator />,
 });
