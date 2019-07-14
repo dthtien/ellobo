@@ -8,6 +8,7 @@ import { compose } from 'redux';
 import { createStructuredSelector } from 'reselect';
 import { useInjectReducer } from 'utils/injectReducer';
 import { useInjectSaga } from 'utils/injectSaga';
+import { Typography } from '@material-ui/core';
 import CompossedLineBarArea from './CompossedLineBarArea';
 import reducer, { addressesSelector, saga, index } from './duck';
 const key = 'dashboard';
@@ -24,6 +25,9 @@ export function Dashboard({ addresses, getAddresses }) {
 
   return (
     <div>
+      <Typography variant="subtitle1">
+        Search component will come here
+      </Typography>
       <CompossedLineBarArea addresses={addresses} />
     </div>
   );

@@ -34,7 +34,7 @@ ThemeWrapper.propTypes = {
   openMenu: PropTypes.bool.isRequired,
   onCloseMenu: PropTypes.func.isRequired,
   children: PropTypes.element.isRequired,
-  classes: PropTypes.element.isRequired,
+  classes: PropTypes.object.isRequired,
 };
 
 export default ThemeWrapper;
