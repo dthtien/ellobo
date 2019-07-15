@@ -1,14 +1,19 @@
 /* eslint-disable quotes */
 import httpClient from 'utils/httpClient';
+import { isEmpty } from 'lodash';
 
 export default class BaseApi {
-  constructor() {
+  constructor(className = '') {
     this.httpClient = httpClient;
-    this.className = this.constructor.name
-      .split(/(?=[A-Z])/)
-      .join('_')
-      .toLowerCase()
-      .replace('_api', '');
+    if (isEmpty(className)) {
+      this.className = className;
+    } else {
+      this.className = this.constructor.name
+        .split(/(?=[A-Z])/)
+        .join('_')
+        .toLowerCase()
+        .replace('_api', '');
+    }
   }
 
   index = (params = {}) =>

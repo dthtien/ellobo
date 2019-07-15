@@ -33,7 +33,7 @@ const ThemeWrapper = ({ openMenu, onCloseMenu, children, classes }) => (
 ThemeWrapper.propTypes = {
   openMenu: PropTypes.bool.isRequired,
   onCloseMenu: PropTypes.func.isRequired,
-  children: PropTypes.element.isRequired,
+  children: PropTypes.array.isRequired,
   classes: PropTypes.object.isRequired,
 };
 

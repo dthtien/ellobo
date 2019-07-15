@@ -5,7 +5,7 @@ import { GET_ADDRESSES } from './constants';
 import { indexSuccess, indexError } from './actions';
 
 function* getAddresses(action) {
-  const api = new AddressesApi();
+  const api = new AddressesApi('addresses');
 
   try {
     const data = yield call(api.index, action.payload);
