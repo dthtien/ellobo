@@ -5,7 +5,7 @@ import { isEmpty } from 'lodash';
 export default class BaseApi {
   constructor(className = '') {
     this.httpClient = httpClient;
-    if (isEmpty(className)) {
+    if (!isEmpty(className)) {
       this.className = className;
     } else {
       this.className = this.constructor.name
@@ -16,13 +16,15 @@ export default class BaseApi {
     }
   }
 
-  index = (params = {}) =>
-    this.httpClient()
+  index = (params = {}) => {
+    console.log('this.className', this.className);
+    return this.httpClient()
       .get(this.className, params)
       .then(response => response.data.data)
       .catch(err => {
         throw err;
       });
+  };
 
   create = params =>
     this.httpClient()
