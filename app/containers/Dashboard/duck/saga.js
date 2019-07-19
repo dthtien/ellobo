@@ -1,8 +1,13 @@
 /* eslint-disable quotes */
-import { call, put, takeLatest } from 'redux-saga/effects';
+import { call, put, takeLatest, all } from 'redux-saga/effects';
 import { AddressesApi } from '../../../api';
-import { GET_ADDRESSES } from './constants';
-import { indexSuccess, indexError } from './actions';
+import { GET_ADDRESSES, GET_ADDRESS_NAMES } from './constants';
+import {
+  indexSuccess,
+  indexError,
+  getAddressNamesSuccess,
+  getAddressNamesError,
+} from './actions';
 
 function* getAddresses(action) {
   const api = new AddressesApi('addresses');
@@ -13,6 +18,20 @@ function* getAddresses(action) {
     yield put(indexError(error));
   }
 }
+
+function* getAddressNamesSaga(action) {
+  const api = new AddressesApi('addresses');
+  try {
+    const response = yield call(api.getAddressNames, action.payload);
+    yield put(getAddressNamesSuccess(response));
+  } catch (error) {
+    yield put(getAddressNamesError(error));
+  }
+}
+
 export default function* getAddressesSaga() {
-  yield takeLatest(GET_ADDRESSES, getAddresses);
+  yield all([
+    takeLatest(GET_ADDRESSES, getAddresses),
+    takeLatest(GET_ADDRESS_NAMES, getAddressNamesSaga),
+  ]);
 }

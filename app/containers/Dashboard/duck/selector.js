@@ -8,3 +8,9 @@ export const addressesSelector = () =>
     selectDashboard,
     dashboardState => dashboardState.get('addresses').toJS(),
   );
+
+export const addressNamesSelector = () =>
+  createSelector(
+    selectDashboard,
+    dashboardState => dashboardState.get('addressNames').toJS(),
+  );

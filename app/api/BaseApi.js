@@ -16,15 +16,13 @@ export default class BaseApi {
     }
   }
 
-  index = (params = {}) => {
-    console.log('this.className', this.className);
-    return this.httpClient()
+  index = (params = {}) =>
+    this.httpClient()
       .get(this.className, params)
       .then(response => response.data.data)
       .catch(err => {
         throw err;
       });
-  };
 
   create = params =>
     this.httpClient()

@@ -1,8 +1,16 @@
 import reducer from './reducer';
-import { addressesSelector } from './selector';
+import { addressesSelector, addressNamesSelector } from './selector';
 import * as constants from './constants';
 import saga from './saga';
-import { index } from './actions';
+import { index, getAddressNames } from './actions';
 
-export { addressesSelector, constants, saga, index };
+export {
+  addressesSelector,
+  addressNamesSelector,
+  constants,
+  saga,
+  index,
+  getAddressNames,
+};
+
 export default reducer;

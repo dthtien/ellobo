@@ -1,0 +1,685 @@
+# Logfile created on 2019-07-15 11:49:43 +0700 by logger.rb/61378
+  INFO ---------------------------------------------------------------------------
+  INFO START 2019-07-15 11:49:43 +0700 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [99fd33ec] Running /usr/bin/env mkdir -p /tmp as deploy@localhost
+ DEBUG [99fd33ec] Command: /usr/bin/env mkdir -p /tmp
+  INFO [99fd33ec] Finished in 0.527 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-ellobo-production-dthtien.sh 0.0%
+  INFO Uploading /tmp/git-ssh-ellobo-production-dthtien.sh 100.0%
+  INFO [2bac6754] Running /usr/bin/env chmod 700 /tmp/git-ssh-ellobo-production-dthtien.sh as deploy@localhost
+ DEBUG [2bac6754] Command: /usr/bin/env chmod 700 /tmp/git-ssh-ellobo-production-dthtien.sh
+  INFO [2bac6754] Finished in 0.006 seconds with exit status 0 (successful).
+  INFO [198bb6e9] Running /usr/bin/env git ls-remote git@github.com:dthtien/ellobo.git HEAD as deploy@localhost
+ DEBUG [198bb6e9] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-ellobo-production-dthtien.sh" ; /usr/bin/env git ls-remote git@github.com:dthtien/ellobo.git HEAD )
+ DEBUG [198bb6e9] 	588528f5a0c5613f4e05cd880c274db048b67ad1	HEAD
+  INFO [198bb6e9] Finished in 3.106 seconds with exit status 0 (successful).
+  INFO [4b50c374] Running /usr/bin/env mkdir -p /home/deploy/ellobo/shared /home/deploy/ellobo/releases as deploy@localhost
+ DEBUG [4b50c374] Command: /usr/bin/env mkdir -p /home/deploy/ellobo/shared /home/deploy/ellobo/releases
+  INFO [4b50c374] Finished in 0.008 seconds with exit status 0 (successful).
+ DEBUG [be9fa8d4] Running [ -f /home/deploy/ellobo/current/REVISION ] as deploy@localhost
+ DEBUG [be9fa8d4] Command: [ -f /home/deploy/ellobo/current/REVISION ]
+ DEBUG [be9fa8d4] Finished in 0.004 seconds with exit status 0 (successful).
+ DEBUG [868eb011] Running /usr/bin/env cat /home/deploy/ellobo/current/REVISION 2>/dev/null as deploy@localhost
+ DEBUG [868eb011] Command: /usr/bin/env cat /home/deploy/ellobo/current/REVISION 2>/dev/null
+ DEBUG [868eb011] 	e17988240d8fbf4abe19c7ef60f458b162121b13
+ DEBUG [868eb011] Finished in 0.005 seconds with exit status 0 (successful).
+ DEBUG [bd9fdbaf] Running [ -f /home/deploy/ellobo/repo/HEAD ] as deploy@localhost
+ DEBUG [bd9fdbaf] Command: [ -f /home/deploy/ellobo/repo/HEAD ]
+ DEBUG [bd9fdbaf] Finished in 0.006 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /home/deploy/ellobo/repo
+ DEBUG [ac5529c2] Running if test ! -d /home/deploy/ellobo/repo; then echo "Directory does not exist '/home/deploy/ellobo/repo'" 1>&2; false; fi as deploy@localhost
+ DEBUG [ac5529c2] Command: if test ! -d /home/deploy/ellobo/repo; then echo "Directory does not exist '/home/deploy/ellobo/repo'" 1>&2; false; fi
+ DEBUG [ac5529c2] Finished in 0.004 seconds with exit status 0 (successful).
+  INFO [f05f41d3] Running /usr/bin/env git remote set-url origin git@github.com:dthtien/ellobo.git as deploy@localhost
+ DEBUG [f05f41d3] Command: cd /home/deploy/ellobo/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-ellobo-production-dthtien.sh" ; /usr/bin/env git remote set-url origin git@github.com:dthtien/ellobo.git )
+  INFO [f05f41d3] Finished in 0.007 seconds with exit status 0 (successful).
+  INFO [a9590146] Running /usr/bin/env git remote update --prune as deploy@localhost
+ DEBUG [a9590146] Command: cd /home/deploy/ellobo/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-ellobo-production-dthtien.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [a9590146] 	Fetching origin
+ DEBUG [a9590146] 	From github.com:dthtien/ellobo
+ + e179882...588528f master     -> master  (forced update)
+  INFO [a9590146] Finished in 10.809 seconds with exit status 0 (successful).
+ DEBUG [8b2b455c] Running if test ! -d /home/deploy/ellobo/repo; then echo "Directory does not exist '/home/deploy/ellobo/repo'" 1>&2; false; fi as deploy@localhost
+ DEBUG [8b2b455c] Command: if test ! -d /home/deploy/ellobo/repo; then echo "Directory does not exist '/home/deploy/ellobo/repo'" 1>&2; false; fi
+ DEBUG [8b2b455c] Finished in 0.004 seconds with exit status 0 (successful).
+  INFO [ec690c3f] Running /usr/bin/env mkdir -p /home/deploy/ellobo/releases/20190715044947 as deploy@localhost
+ DEBUG [ec690c3f] Command: cd /home/deploy/ellobo/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-ellobo-production-dthtien.sh" ; /usr/bin/env mkdir -p /home/deploy/ellobo/releases/20190715044947 )
+  INFO [ec690c3f] Finished in 0.008 seconds with exit status 0 (successful).
+  INFO [f0a6ff18] Running /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /home/deploy/ellobo/releases/20190715044947 as deploy@localhost
+ DEBUG [f0a6ff18] Command: cd /home/deploy/ellobo/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-ellobo-production-dthtien.sh" ; /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /home/deploy/ellobo/releases/20190715044947 )
+ DEBUG [f0a6ff18] 	tar: 
+ DEBUG [f0a6ff18] 	.all-contributorsrc: time stamp 2019-07-15 04:41:55 is 6335.499193606 s in the future
+ DEBUG [f0a6ff18] 	
+ DEBUG [f0a6ff18] 	tar: 
+ DEBUG [f0a6ff18] 	.editorconfig: time stamp 2019-07-15 04:41:55 is 6335.498126355 s in the future
+ DEBUG [f0a6ff18] 	
+ DEBUG [f0a6ff18] 	tar: 
+ DEBUG [f0a6ff18] 	.env.production: time stamp 2019-07-15 04:41:55 is 6335.497376258 s in the future
+ DEBUG [f0a6ff18] 	tar: .eslintrc.js: time stamp 2019-07-15 04:41:55 is 6335.496034403 s in the future
+tar: .gitattributes: time stamp 2019-07-15 04:41:55 is 6335.495941585 s in the future
+tar: .github/ISSUE_TEMPLATE/bug_report.md: time stamp 2019-07-15 04:41:55 is 6335.495617619 s in the future
+tar: .github/ISSUE_TEMPLATE/feature_request.md: time stamp 2019-07-15 04:41:55 is 6335.495527982 s in the future
+tar: .github/ISSUE_TEMPLATE: time stamp 2019-07-15 04:41:55 is 6335.495506896 s in the future
+tar: .github/PULL_REQUEST_TEMPLATE.md: time stamp 2019-07-15 04:41:55 is 6335.495301944 s in the future
+tar: .github/issue-close-app.yml: time stamp 2019-07-15 04:41:55 is 6335.495246038 s in the future
+tar: .github/lock.yml: time stamp 2019-07-15 04:41:55 is 6335.495210129 s in the future
+tar: .github: time stamp 2019-07-15 04:41:55 is 6335.495193758 s in the future
+tar: .gitignore: time stamp 2019-07-15 04:41:55 is 6335.49516522 s in the future
+tar: .nvmrc: time stamp 2019-07-15 04:41:55 is 6335.495133509 s in the future
+tar: .prettierignore: time stamp 2019-07-15 04:41:55 is 6335.495102725 s in the future
+tar: .prettierrc: time stamp 2019-07-15 04:41:55 is 6335.495079017 s in the future
+tar: .stylelintrc: time stamp 2019-07-15 04:41:55 is 6335.495057866 s in the future
+tar: .travis.yml: time stamp 2019-07-15 04:41:55 is 6335.495023844 s in the future
+tar: CODE_OF_CONDUCT.md: time stamp 2019-07-15 04:41:55 is 6335.494987978 s in the future
+ DEBUG [f0a6ff18] 	tar: 
+ DEBUG [f0a6ff18] 	CONTRIBUTING.md: time stamp 2019-07-15 04:41:55 is 6335.494274689 s in the future
+ DEBUG [f0a6ff18] 	
+ DEBUG [f0a6ff18] 	tar: 
+ DEBUG [f0a6ff18] 	Changelog.md: time stamp 2019-07-15 04:41:55 is 6335.492437819 s in the future
+ DEBUG [f0a6ff18] 	
+ DEBUG [f0a6ff18] 	tar: 
+ DEBUG [f0a6ff18] 	LICENSE.md: time stamp 2019-07-15 04:41:55 is 6335.491731541 s in the future
+ DEBUG [f0a6ff18] 	
+ DEBUG [f0a6ff18] 	tar: 
+ DEBUG [f0a6ff18] 	README.md: time stamp 2019-07-15 04:41:55 is 6335.491013823 s in the future
+tar: app/.htaccess: time stamp 2019-07-15 04:41:55 is 6335.490719222 s in the future
+tar: app/.nginx.conf: time stamp 2019-07-15 04:41:55 is 6335.49067417 s in the future
+tar: app/api/AddressesApi.js: time stamp 2019-07-15 04:41:55 is 6335.490626133 s in the future
+tar: app/api/BaseApi.js: time stamp 2019-07-15 04:41:55 is 6335.490602637 s in the future
+tar: app/api/index.js: time stamp 2019-07-15 04:41:55 is 6335.49058146 s in the future
+tar: app/api: time stamp 2019-07-15 04:41:55 is 6335.49057069 s in the future
+tar: app/app.js: time stamp 2019-07-15 04:41:55 is 6335.490547612 s in the future
+tar: app/components/A/index.js: time stamp 2019-07-15 04:41:55 is 6335.490415633 s in the future
+tar: app/components/A/tests/index.test.js: time stamp 2019-07-15 04:41:55 is 6335.490375199 s in the future
+tar: app/components/A/tests: time stamp 2019-07-15 04:41:55 is 6335.490363361 s in the future
+tar: app/components/A: time stamp 2019-07-15 04:41:55 is 6335.4903566 s in the future
+tar: app/components/Button/A.js: time stamp 2019-07-15 04:41:55 is 6335.490324231 s in the future
+tar: app/components/Button/StyledButton.js: time stamp 2019-07-15 04:41:55 is 6335.490302954 s in the future
+ DEBUG [f0a6ff18] 	tar: 
+ DEBUG [f0a6ff18] 	app/components/Button/Wrapper.js: time stamp 2019-07-15 04:41:55 is 6335.489100821 s in the future
+ DEBUG [f0a6ff18] 	
+ DEBUG [f0a6ff18] 	tar: 
+ DEBUG [f0a6ff18] 	app/components/Button/buttonStyles.js: time stamp 2019-07-15 04:41:55 is 6335.488633755 s in the future
+ DEBUG [f0a6ff18] 	
+tar: app/components/Button/index.js: time stamp 2019-07-15 04:41:55 is 6335.4881535 s in the future
+tar: app/components/Button/tests/A.test.js: time stamp 2019-07-15 04:41:55 is 6335.488080211 s in the future
+tar: app/components/Button/tests/StyledButton.test.js: time stamp 2019-07-15 04:41:55 is 6335.488054519 s in the future
+tar: app/components/Button/tests/Wrapper.test.js: time stamp 2019-07-15 04:41:55 is 6335.488031766 s in the future
+tar: app/components/Button/tests/index.test.js: time stamp 2019-07-15 04:41:55 is 6335.488004711 s in the future
+tar: app/components/Button/tests: time stamp 2019-07-15 04:41:55 is 6335.48799312 s in the future
+tar: app/components/Button: time stamp 2019-07-15 04:41:55 is 6335.487986167 s in the future
+ DEBUG [f0a6ff18] 	tar: 
+ DEBUG [f0a6ff18] 	app/components/Footer/Wrapper.js: time stamp 2019-07-15 04:41:55 is 6335.487232546 s in the future
+ DEBUG [f0a6ff18] 	
+tar: app/components/Footer/index.js: time stamp 2019-07-15 04:41:55 is 6335.48675481 s in the future
+tar: app/components/Footer/messages.js: time stamp 2019-07-15 04:41:55 is 6335.486702152 s in the future
+ DEBUG [f0a6ff18] 	tar: 
+ DEBUG [f0a6ff18] 	app/components/Footer/tests/Wrapper.test.js: time stamp 2019-07-15 04:41:55 is 6335.484001005 s in the future
+ DEBUG [f0a6ff18] 	
+ DEBUG [f0a6ff18] 	tar: 
+ DEBUG [f0a6ff18] 	app/components/Footer/tests/__snapshots__/index.test.js.snap: time stamp 2019-07-15 04:41:55 is 6335.483511358 s in the future
+ DEBUG [f0a6ff18] 	
+ DEBUG [f0a6ff18] 	tar: 
+ DEBUG [f0a6ff18] 	app/components/Footer/tests/__snapshots__: time stamp 2019-07-15 04:41:55 is 6335.48291669 s in the future
+ DEBUG [f0a6ff18] 	
+ DEBUG [f0a6ff18] 	tar: app/components/Footer/tests/index.test.js: time stamp 2019-07-15 04:41:55 is 6335.482177029 s in the future
+tar: app/components/Footer/tests: time stamp 2019-07-15 04:41:55 is 6335.482107495 s in the future
+tar: app/components/Footer: time stamp 2019-07-15 04:41:55 is 6335.481947355 s in the future
+tar: app/components/H1/index.js: time stamp 2019-07-15 04:41:55 is 6335.481835642 s in the future
+tar: app/components/H1/tests/index.test.js: time stamp 2019-07-15 04:41:55 is 6335.481704299 s in the future
+tar: app/components/H1/tests: time stamp 2019-07-15 04:41:55 is 6335.481674976 s in the future
+tar: app/components/H1: time stamp 2019-07-15 04:41:55 is 6335.481664002 s in the future
+tar: app/components/H2/index.js: time stamp 2019-07-15 04:41:55 is 6335.481611797 s in the future
+tar: app/components/H2/tests/index.test.js: time stamp 2019-07-15 04:41:55 is 6335.481555017 s in the future
+tar: app/components/H2/tests: time stamp 2019-07-15 04:41:55 is 6335.481536616 s in the future
+tar: app/components/H2: time stamp 2019-07-15 04:41:55 is 6335.481526976 s in the future
+tar: app/components/H3/index.js: time stamp 2019-07-15 04:41:55 is 6335.481490526 s in the future
+ DEBUG [f0a6ff18] 	tar: 
+ DEBUG [f0a6ff18] 	app/components/H3/tests/index.test.js: time stamp 2019-07-15 04:41:55 is 6335.481124563 s in the future
+ DEBUG [f0a6ff18] 	
+tar: app/components/H3/tests: time stamp 2019-07-15 04:41:55 is 6335.480723702 s in the future
+tar: app/components/H3: time stamp 2019-07-15 04:41:55 is 6335.480634971 s in the future
+tar: app/components/Header/A.js: time stamp 2019-07-15 04:41:55 is 6335.480413739 s in the future
+tar: app/components/Header/HeaderLink.js: time stamp 2019-07-15 04:41:55 is 6335.480298474 s in the future
+tar: app/components/Header/Img.js: time stamp 2019-07-15 04:41:55 is 6335.480249349 s in the future
+ DEBUG [f0a6ff18] 	tar: 
+ DEBUG [f0a6ff18] 	app/components/Header/NavBar.js: time stamp 2019-07-15 04:41:55 is 6335.480043889 s in the future
+ DEBUG [f0a6ff18] 	
+ DEBUG [f0a6ff18] 	tar: 
+ DEBUG [f0a6ff18] 	app/components/Header/banner.jpg: time stamp 2019-07-15 04:41:55 is 6335.475905919 s in the future
+ DEBUG [f0a6ff18] 	
+ DEBUG [f0a6ff18] 	tar: 
+ DEBUG [f0a6ff18] 	app/components/Header/index.js: time stamp 2019-07-15 04:41:55 is 6335.475057098 s in the future
+ DEBUG [f0a6ff18] 	
+ DEBUG [f0a6ff18] 	tar: 
+ DEBUG [f0a6ff18] 	app/components/Header/messages.js: time stamp 2019-07-15 04:41:55 is 6335.474464379 s in the future
+ DEBUG [f0a6ff18] 	tar: app/components/Header/tests/A.test.js: time stamp 2019-07-15 04:41:55 is 6335.473874538 s in the future
+tar: app/components/Header/tests/Img.test.js: time stamp 2019-07-15 04:41:55 is 6335.473834362 s in the future
+tar: app/components/Header/tests/__snapshots__/A.test.js.snap: time stamp 2019-07-15 04:41:55 is 6335.473794552 s in the future
+tar: app/components/Header/tests/__snapshots__/Img.test.js.snap: time stamp 2019-07-15 04:41:55 is 6335.473772726 s in the future
+tar: app/components/Header/tests/__snapshots__/index.test.js.snap: time stamp 2019-07-15 04:41:55 is 6335.473751805 s in the future
+tar: app/components/Header/tests/__snapshots__: time stamp 2019-07-15 04:41:55 is 6335.473740475 s in the future
+tar: app/components/Header/tests/index.test.js: time stamp 2019-07-15 04:41:55 is 6335.473722695 s in the future
+tar: app/components/Header/tests: time stamp 2019-07-15 04:41:55 is 6335.473711989 s in the future
+tar: app/components/Header: time stamp 2019-07-15 04:41:55 is 6335.473705225 s in the future
+ DEBUG [f0a6ff18] 	tar: 
+ DEBUG [f0a6ff18] 	app/components/Img/index.js: time stamp 2019-07-15 04:41:55 is 6335.473356786 s in the future
+tar: app/components/Img/tests/index.test.js: time stamp 2019-07-15 04:41:55 is 6335.473108083 s in the future
+tar: app/components/Img/tests: time stamp 2019-07-15 04:41:55 is 6335.473070003 s in the future
+tar: app/components/Img: time stamp 2019-07-15 04:41:55 is 6335.473060527 s in the future
+tar: app/components/IssueIcon/index.js: time stamp 2019-07-15 04:41:55 is 6335.473021801 s in the future
+tar: app/components/IssueIcon/tests/index.test.js: time stamp 2019-07-15 04:41:55 is 6335.472986253 s in the future
+tar: app/components/IssueIcon/tests: time stamp 2019-07-15 04:41:55 is 6335.472974643 s in the future
+tar: app/components/IssueIcon: time stamp 2019-07-15 04:41:55 is 6335.472967923 s in the future
+tar: app/components/List/Ul.js: time stamp 2019-07-15 04:41:55 is 6335.472932486 s in the future
+tar: app/components/List/Wrapper.js: time stamp 2019-07-15 04:41:55 is 6335.472910381 s in the future
+ DEBUG [f0a6ff18] 	tar: 
+ DEBUG [f0a6ff18] 	app/components/List/index.js: time stamp 2019-07-15 04:41:55 is 6335.47265474 s in the future
+ DEBUG [f0a6ff18] 	
+ DEBUG [f0a6ff18] 	tar: 
+ DEBUG [f0a6ff18] 	app/components/List/tests/Ul.test.js: time stamp 2019-07-15 04:41:55 is 6335.471991326 s in the future
+ DEBUG [f0a6ff18] 	
+ DEBUG [f0a6ff18] 	tar: 
+ DEBUG [f0a6ff18] 	app/components/List/tests/Wrapper.test.js: time stamp 2019-07-15 04:41:55 is 6335.4715426 s in the future
+tar: app/components/List/tests/index.test.js: time stamp 2019-07-15 04:41:55 is 6335.471367675 s in the future
+tar: app/components/List/tests: time stamp 2019-07-15 04:41:55 is 6335.471351066 s in the future
+tar: app/components/List: time stamp 2019-07-15 04:41:55 is 6335.471343243 s in the future
+tar: app/components/ListItem/Item.js: time stamp 2019-07-15 04:41:55 is 6335.471231515 s in the future
+tar: app/components/ListItem/Wrapper.js: time stamp 2019-07-15 04:41:55 is 6335.47120103 s in the future
+tar: app/components/ListItem/index.js: time stamp 2019-07-15 04:41:55 is 6335.471178103 s in the future
+ DEBUG [f0a6ff18] 	tar: app/components/ListItem/tests/Item.test.js: time stamp 2019-07-15 04:41:55 is 6335.470688661 s in the future
+tar: app/components/ListItem/tests/Wrapper.test.js: time stamp 2019-07-15 04:41:55 is 6335.470639178 s in the future
+tar: app/components/ListItem/tests/index.test.js: time stamp 2019-07-15 04:41:55 is 6335.470566708 s in the future
+tar: app/components/ListItem/tests: time stamp 2019-07-15 04:41:55 is 6335.470542681 s in the future
+tar: app/components/ListItem: time stamp 2019-07-15 04:41:55 is 6335.470534117 s in the future
+tar: app/components/LoadingIndicator/Circle.js: time stamp 2019-07-15 04:41:55 is 6335.470487933 s in the future
+tar: app/components/LoadingIndicator/Wrapper.js: time stamp 2019-07-15 04:41:55 is 6335.470423379 s in the future
+tar: app/components/LoadingIndicator/index.js: time stamp 2019-07-15 04:41:55 is 6335.470401276 s in the future
+ DEBUG [f0a6ff18] 	tar: 
+ DEBUG [f0a6ff18] 	app/components/LoadingIndicator/tests/Circle.test.js: time stamp 2019-07-15 04:41:55 is 6335.469934929 s in the future
+ DEBUG [f0a6ff18] 	
+tar: app/components/LoadingIndicator/tests/Wrapper.test.js: time stamp 2019-07-15 04:41:55 is 6335.469533189 s in the future
+ DEBUG [f0a6ff18] 	tar: app/components/LoadingIndicator/tests/__snapshots__/index.test.js.snap: time stamp 2019-07-15 04:41:55 is 6335.469064729 s in the future
+tar: app/components/LoadingIndicator/tests/__snapshots__: time stamp 2019-07-15 04:41:55 is 6335.468965414 s in the future
+tar: app/components/LoadingIndicator/tests/index.test.js: time stamp 2019-07-15 04:41:55 is 6335.468932688 s in the future
+tar: app/components/LoadingIndicator/tests: time stamp 2019-07-15 04:41:55 is 6335.46892025 s in the future
+tar: app/components/LoadingIndicator: time stamp 2019-07-15 04:41:55 is 6335.468913115 s in the future
+tar: app/components/ReposList/index.js: time stamp 2019-07-15 04:41:55 is 6335.468872269 s in the future
+tar: app/components/ReposList/tests/__snapshots__/index.test.js.snap: time stamp 2019-07-15 04:41:55 is 6335.468820249 s in the future
+tar: app/components/ReposList/tests/__snapshots__: time stamp 2019-07-15 04:41:55 is 6335.468808032 s in the future
+ DEBUG [f0a6ff18] 	tar: 
+ DEBUG [f0a6ff18] 	app/components/ReposList/tests/index.test.js: time stamp 2019-07-15 04:41:55 is 6335.468459574 s in the future
+tar: app/components/ReposList/tests: time stamp 2019-07-15 04:41:55 is 6335.468165667 s in the future
+tar: app/components/ReposList: time stamp 2019-07-15 04:41:55 is 6335.468145504 s in the future
+tar: app/components/ThemeWrapper/index.js: time stamp 2019-07-15 04:41:55 is 6335.468070115 s in the future
+tar: app/components/ThemeWrapper: time stamp 2019-07-15 04:41:55 is 6335.468052791 s in the future
+tar: app/components/Toggle/Select.js: time stamp 2019-07-15 04:41:55 is 6335.467997909 s in the future
+tar: app/components/Toggle/index.js: time stamp 2019-07-15 04:41:55 is 6335.467962282 s in the future
+tar: app/components/Toggle/tests/Select.test.js: time stamp 2019-07-15 04:41:55 is 6335.467903286 s in the future
+tar: app/components/Toggle/tests/__snapshots__/index.test.js.snap: time stamp 2019-07-15 04:41:55 is 6335.467857348 s in the future
+ DEBUG [f0a6ff18] 	tar: 
+ DEBUG [f0a6ff18] 	app/components/Toggle/tests/__snapshots__: time stamp 2019-07-15 04:41:55 is 6335.467404724 s in the future
+ DEBUG [f0a6ff18] 	
+tar: app/components/Toggle/tests/index.test.js: time stamp 2019-07-15 04:41:55 is 6335.467028993 s in the future
+tar: app/components/Toggle/tests: time stamp 2019-07-15 04:41:55 is 6335.467003105 s in the future
+tar: app/components/Toggle: time stamp 2019-07-15 04:41:55 is 6335.466994957 s in the future
+tar: app/components/ToggleOption/index.js: time stamp 2019-07-15 04:41:55 is 6335.466941892 s in the future
+tar: app/components/ToggleOption/tests/__snapshots__/index.test.js.snap: time stamp 2019-07-15 04:41:55 is 6335.466858954 s in the future
+tar: app/components/ToggleOption/tests/__snapshots__: time stamp 2019-07-15 04:41:55 is 6335.466836801 s in the future
+tar: app/components/ToggleOption/tests/index.test.js: time stamp 2019-07-15 04:41:55 is 6335.466805938 s in the future
+tar: app/components/ToggleOption/tests: time stamp 2019-07-15 04:41:55 is 6335.466787659 s in the future
+tar: app/components/ToggleOption: time stamp 2019-07-15 04:41:55 is 6335.466776527 s in the future
+tar: app/components/index.js: time stamp 2019-07-15 04:41:55 is 6335.466744134 s in the future
+ DEBUG [f0a6ff18] 	tar: 
+ DEBUG [f0a6ff18] 	app/components: time stamp 2019-07-15 04:41:55 is 6335.466727052 s in the future
+ DEBUG [f0a6ff18] 	
+ DEBUG [f0a6ff18] 	tar: app/configureStore.js: time stamp 2019-07-15 04:41:55 is 6335.464918979 s in the future
+tar: app/containers/App/actions.js: time stamp 2019-07-15 04:41:55 is 6335.464600618 s in the future
+tar: app/containers/App/constants.js: time stamp 2019-07-15 04:41:55 is 6335.464556255 s in the future
+tar: app/containers/App/index.js: time stamp 2019-07-15 04:41:55 is 6335.464471557 s in the future
+tar: app/containers/App/reducer.js: time stamp 2019-07-15 04:41:55 is 6335.464177637 s in the future
+ DEBUG [f0a6ff18] 	tar: 
+ DEBUG [f0a6ff18] 	app/containers/App/selectors.js: time stamp 2019-07-15 04:41:55 is 6335.463185467 s in the future
+tar: app/containers/App/tests/__snapshots__/index.test.js.snap: time stamp 2019-07-15 04:41:55 is 6335.461311928 s in the future
+tar: app/containers/App/tests/__snapshots__: time stamp 2019-07-15 04:41:55 is 6335.461260383 s in the future
+tar: app/containers/App/tests/actions.test.js: time stamp 2019-07-15 04:41:55 is 6335.461233245 s in the future
+tar: app/containers/App/tests/index.test.js: time stamp 2019-07-15 04:41:55 is 6335.461209419 s in the future
+tar: app/containers/App/tests/reducer.test.js: time stamp 2019-07-15 04:41:55 is 6335.461130824 s in the future
+ DEBUG [f0a6ff18] 	tar: 
+ DEBUG [f0a6ff18] 	app/containers/App/tests/selectors.test.js: time stamp 2019-07-15 04:41:55 is 6335.460557723 s in the future
+ DEBUG [f0a6ff18] 	
+ DEBUG [f0a6ff18] 	tar: 
+ DEBUG [f0a6ff18] 	app/containers/App/tests: time stamp 2019-07-15 04:41:55 is 6335.459667795 s in the future
+ DEBUG [f0a6ff18] 	
+ DEBUG [f0a6ff18] 	tar: 
+ DEBUG [f0a6ff18] 	app/containers/App: time stamp 2019-07-15 04:41:55 is 6335.45886918 s in the future
+tar: app/containers/Dashboard/CompossedLineBarArea.js: time stamp 2019-07-15 04:41:55 is 6335.458118146 s in the future
+tar: app/containers/Dashboard/duck/actions.js: time stamp 2019-07-15 04:41:55 is 6335.458036671 s in the future
+tar: app/containers/Dashboard/duck/constants.js: time stamp 2019-07-15 04:41:55 is 6335.457998634 s in the future
+ DEBUG [f0a6ff18] 	tar: 
+ DEBUG [f0a6ff18] 	app/containers/Dashboard/duck/index.js: time stamp 2019-07-15 04:41:55 is 6335.456656461 s in the future
+ DEBUG [f0a6ff18] 	
+tar: app/containers/Dashboard/duck/reducer.js: time stamp 2019-07-15 04:41:55 is 6335.456147736 s in the future
+tar: app/containers/Dashboard/duck/saga.js: time stamp 2019-07-15 04:41:55 is 6335.456020391 s in the future
+tar: app/containers/Dashboard/duck/selector.js: time stamp 2019-07-15 04:41:55 is 6335.455996093 s in the future
+tar: app/containers/Dashboard/duck: time stamp 2019-07-15 04:41:55 is 6335.455984364 s in the future
+tar: app/containers/Dashboard/index.js: time stamp 2019-07-15 04:41:55 is 6335.455956612 s in the future
+tar: app/containers/Dashboard: time stamp 2019-07-15 04:41:55 is 6335.455938899 s in the future
+tar: app/containers/FeaturePage/List.js: time stamp 2019-07-15 04:41:55 is 6335.455876885 s in the future
+tar: app/containers/FeaturePage/ListItem.js: time stamp 2019-07-15 04:41:55 is 6335.455836478 s in the future
+ DEBUG [f0a6ff18] 	tar: 
+ DEBUG [f0a6ff18] 	app/containers/FeaturePage/ListItemTitle.js: time stamp 2019-07-15 04:41:55 is 6335.455517233 s in the future
+ DEBUG [f0a6ff18] 	
+ DEBUG [f0a6ff18] 	tar: 
+ DEBUG [f0a6ff18] 	app/containers/FeaturePage/Loadable.js: time stamp 2019-07-15 04:41:55 is 6335.455032276 s in the future
+tar: app/containers/FeaturePage/index.js: time stamp 2019-07-15 04:41:55 is 6335.45483655 s in the future
+tar: app/containers/FeaturePage/tests/List.test.js: time stamp 2019-07-15 04:41:55 is 6335.454762252 s in the future
+tar: app/containers/FeaturePage/tests/ListItem.test.js: time stamp 2019-07-15 04:41:55 is 6335.454598024 s in the future
+tar: app/containers/FeaturePage/tests/ListItemTitle.test.js: time stamp 2019-07-15 04:41:55 is 6335.454551847 s in the future
+ DEBUG [f0a6ff18] 	tar: 
+ DEBUG [f0a6ff18] 	app/containers/FeaturePage/tests/__snapshots__/index.test.js.snap: time stamp 2019-07-15 04:41:55 is 6335.454271289 s in the future
+ DEBUG [f0a6ff18] 	
+tar: app/containers/FeaturePage/tests/__snapshots__: time stamp 2019-07-15 04:41:55 is 6335.453806965 s in the future
+tar: app/containers/FeaturePage/tests/index.test.js: time stamp 2019-07-15 04:41:55 is 6335.453750717 s in the future
+tar: app/containers/FeaturePage/tests: time stamp 2019-07-15 04:41:55 is 6335.453730753 s in the future
+tar: app/containers/FeaturePage: time stamp 2019-07-15 04:41:55 is 6335.453719457 s in the future
+tar: app/containers/LanguageProvider/actions.js: time stamp 2019-07-15 04:41:55 is 6335.453657713 s in the future
+tar: app/containers/LanguageProvider/constants.js: time stamp 2019-07-15 04:41:55 is 6335.453621029 s in the future
+tar: app/containers/LanguageProvider/index.js: time stamp 2019-07-15 04:41:55 is 6335.453586006 s in the future
+tar: app/containers/LanguageProvider/reducer.js: time stamp 2019-07-15 04:41:55 is 6335.45355151 s in the future
+tar: app/containers/LanguageProvider/selectors.js: time stamp 2019-07-15 04:41:55 is 6335.453518414 s in the future
+ DEBUG [f0a6ff18] 	tar: 
+ DEBUG [f0a6ff18] 	app/containers/LanguageProvider/tests/actions.test.js: time stamp 2019-07-15 04:41:55 is 6335.453098487 s in the future
+ DEBUG [f0a6ff18] 	
+tar: app/containers/LanguageProvider/tests/index.test.js: time stamp 2019-07-15 04:41:55 is 6335.452761892 s in the future
+tar: app/containers/LanguageProvider/tests/reducer.test.js: time stamp 2019-07-15 04:41:55 is 6335.452716353 s in the future
+tar: app/containers/LanguageProvider/tests/selectors.test.js: time stamp 2019-07-15 04:41:55 is 6335.452680919 s in the future
+tar: app/containers/LanguageProvider/tests: time stamp 2019-07-15 04:41:55 is 6335.452661836 s in the future
+tar: app/containers/LanguageProvider: time stamp 2019-07-15 04:41:55 is 6335.45264924 s in the future
+tar: app/containers/LocaleToggle/Wrapper.js: time stamp 2019-07-15 04:41:55 is 6335.452582688 s in the future
+tar: app/containers/LocaleToggle/index.js: time stamp 2019-07-15 04:41:55 is 6335.452547281 s in the future
+tar: app/containers/LocaleToggle/messages.js: time stamp 2019-07-15 04:41:55 is 6335.452514484 s in the future
+ DEBUG [f0a6ff18] 	tar: 
+ DEBUG [f0a6ff18] 	app/containers/LocaleToggle/tests/Wrapper.test.js: time stamp 2019-07-15 04:41:55 is 6335.452162026 s in the future
+tar: app/containers/LocaleToggle/tests/__snapshots__/index.test.js.snap: time stamp 2019-07-15 04:41:55 is 6335.451821744 s in the future
+tar: app/containers/LocaleToggle/tests/__snapshots__: time stamp 2019-07-15 04:41:55 is 6335.451794871 s in the future
+tar: app/containers/LocaleToggle/tests/index.test.js: time stamp 2019-07-15 04:41:55 is 6335.451761359 s in the future
+tar: app/containers/LocaleToggle/tests: time stamp 2019-07-15 04:41:55 is 6335.451742298 s in the future
+tar: app/containers/LocaleToggle: time stamp 2019-07-15 04:41:55 is 6335.451731144 s in the future
+tar: app/containers/NotFoundPage/Loadable.js: time stamp 2019-07-15 04:41:55 is 6335.451690589 s in the future
+tar: app/containers/NotFoundPage/index.js: time stamp 2019-07-15 04:41:55 is 6335.451667943 s in the future
+tar: app/containers/NotFoundPage/messages.js: time stamp 2019-07-15 04:41:55 is 6335.451646595 s in the future
+ DEBUG [f0a6ff18] 	tar: 
+ DEBUG [f0a6ff18] 	app/containers/NotFoundPage/tests/index.test.js: time stamp 2019-07-15 04:41:55 is 6335.451280098 s in the future
+tar: app/containers/NotFoundPage/tests: time stamp 2019-07-15 04:41:55 is 6335.451074496 s in the future
+tar: app/containers/NotFoundPage: time stamp 2019-07-15 04:41:55 is 6335.451061573 s in the future
+tar: app/containers/RepoListItem/IssueIcon.js: time stamp 2019-07-15 04:41:55 is 6335.451011362 s in the future
+tar: app/containers/RepoListItem/IssueLink.js: time stamp 2019-07-15 04:41:55 is 6335.450988197 s in the future
+tar: app/containers/RepoListItem/RepoLink.js: time stamp 2019-07-15 04:41:55 is 6335.450967682 s in the future
+tar: app/containers/RepoListItem/Wrapper.js: time stamp 2019-07-15 04:41:55 is 6335.450945783 s in the future
+tar: app/containers/RepoListItem/index.js: time stamp 2019-07-15 04:41:55 is 6335.45092485 s in the future
+ DEBUG [f0a6ff18] 	tar: 
+ DEBUG [f0a6ff18] 	app/containers/RepoListItem/tests/IssueIcon.test.js: time stamp 2019-07-15 04:41:55 is 6335.450679019 s in the future
+tar: app/containers/RepoListItem/tests/IssueLink.test.js: time stamp 2019-07-15 04:41:55 is 6335.450297756 s in the future
+tar: app/containers/RepoListItem/tests/RepoLink.test.js: time stamp 2019-07-15 04:41:55 is 6335.45025089 s in the future
+tar: app/containers/RepoListItem/tests/Wrapper.test.js: time stamp 2019-07-15 04:41:55 is 6335.450213937 s in the future
+tar: app/containers/RepoListItem/tests/__snapshots__/IssueIcon.test.js.snap: time stamp 2019-07-15 04:41:55 is 6335.45015542 s in the future
+tar: app/containers/RepoListItem/tests/__snapshots__/IssueLink.test.js.snap: time stamp 2019-07-15 04:41:55 is 6335.450130972 s in the future
+tar: app/containers/RepoListItem/tests/__snapshots__/RepoLink.test.js.snap: time stamp 2019-07-15 04:41:55 is 6335.450106502 s in the future
+ DEBUG [f0a6ff18] 	tar: 
+ DEBUG [f0a6ff18] 	app/containers/RepoListItem/tests/__snapshots__/index.test.js.snap: time stamp 2019-07-15 04:41:55 is 6335.449872239 s in the future
+ DEBUG [f0a6ff18] 	
+tar: app/containers/RepoListItem/tests/__snapshots__: time stamp 2019-07-15 04:41:55 is 6335.449588077 s in the future
+tar: app/containers/RepoListItem/tests/index.test.js: time stamp 2019-07-15 04:41:55 is 6335.449537032 s in the future
+tar: app/containers/RepoListItem/tests: time stamp 2019-07-15 04:41:55 is 6335.449516054 s in the future
+tar: app/containers/RepoListItem: time stamp 2019-07-15 04:41:55 is 6335.449461242 s in the future
+tar: app/containers/pageListAsync.js: time stamp 2019-07-15 04:41:55 is 6335.449412397 s in the future
+tar: app/containers: time stamp 2019-07-15 04:41:55 is 6335.449315074 s in the future
+tar: app/global-styles.js: time stamp 2019-07-15 04:41:55 is 6335.44928623 s in the future
+tar: app/i18n.js: time stamp 2019-07-15 04:41:55 is 6335.449263627 s in the future
+ DEBUG [f0a6ff18] 	tar: 
+ DEBUG [f0a6ff18] 	app/images/favicon.ico: time stamp 2019-07-15 04:41:55 is 6335.447816875 s in the future
+ DEBUG [f0a6ff18] 	
+ DEBUG [f0a6ff18] 	tar: 
+ DEBUG [f0a6ff18] 	app/images/icon-512x512.png: time stamp 2019-07-15 04:41:55 is 6335.443524687 s in the future
+ DEBUG [f0a6ff18] 	
+ DEBUG [f0a6ff18] 	tar: 
+ DEBUG [f0a6ff18] 	app/images: time stamp 2019-07-15 04:41:55 is 6335.442699557 s in the future
+tar: app/index.html: time stamp 2019-07-15 04:41:55 is 6335.442038057 s in the future
+tar: app/reducers.js: time stamp 2019-07-15 04:41:55 is 6335.441966266 s in the future
+tar: app/tests/i18n.test.js: time stamp 2019-07-15 04:41:55 is 6335.441900878 s in the future
+tar: app/tests/store.test.js: time stamp 2019-07-15 04:41:55 is 6335.441868379 s in the future
+tar: app/tests: time stamp 2019-07-15 04:41:55 is 6335.441851794 s in the future
+tar: app/translations/de.json: time stamp 2019-07-15 04:41:55 is 6335.441804409 s in the future
+tar: app/translations/en.json: time stamp 2019-07-15 04:41:55 is 6335.441769458 s in the future
+tar: app/translations: time stamp 2019-07-15 04:41:55 is 6335.44175273 s in the future
+tar: app/utils/checkStore.js: time stamp 2019-07-15 04:41:55 is 6335.441705027 s in the future
+tar: app/utils/constants.js: time stamp 2019-07-15 04:41:55 is 6335.441672245 s in the future
+tar: app/utils/history.js: time stamp 2019-07-15 04:41:55 is 6335.441554859 s in the future
+tar: app/utils/httpClient.js: time stamp 2019-07-15 04:41:55 is 6335.441508191 s in the future
+tar: app/utils/injectReducer.js: time stamp 2019-07-15 04:41:55 is 6335.441479937 s in the future
+tar: app/utils/injectSaga.js: time stamp 2019-07-15 04:41:55 is 6335.441458543 s in the future
+tar: app/utils/loadable.js: time stamp 2019-07-15 04:41:55 is 6335.441438495 s in the future
+tar: app/utils/reducerInjectors.js: time stamp 2019-07-15 04:41:55 is 6335.441418503 s in the future
+tar: app/utils/request.js: time stamp 2019-07-15 04:41:55 is 6335.441395035 s in the future
+tar: app/utils/sagaInjectors.js: time stamp 2019-07-15 04:41:55 is 6335.441370624 s in the future
+tar: app/utils/tests/checkStore.test.js: time stamp 2019-07-15 04:41:55 is 6335.441331069 s in the future
+tar: app/utils/tests/injectReducer.test.js: time stamp 2019-07-15 04:41:55 is 6335.44131013 s in the future
+tar: app/utils/tests/injectSaga.test.js: time stamp 2019-07-15 04:41:55 is 6335.441285835 s in the future
+tar: app/utils/tests/reducerInjectors.test.js: time stamp 2019-07-15 04:41:55 is 6335.441264796 s in the future
+tar: app/utils/tests/request.test.js: time stamp 2019-07-15 04:41:55 is 6335.441244817 s in the future
+tar: app/utils/tests/sagaInjectors.test.js: time stamp 2019-07-15 04:41:55 is 6335.441218807 s in the future
+tar: app/utils/tests: time stamp 2019-07-15 04:41:55 is 6335.441207824 s in the future
+ DEBUG [f0a6ff18] 	tar: 
+ DEBUG [f0a6ff18] 	app/utils/themePalette.js: time stamp 2019-07-15 04:41:55 is 6335.440860521 s in the future
+ DEBUG [f0a6ff18] 	
+ DEBUG [f0a6ff18] 	tar: 
+ DEBUG [f0a6ff18] 	app/utils: time stamp 2019-07-15 04:41:55 is 6335.440060696 s in the future
+ DEBUG [f0a6ff18] 	
+ DEBUG [f0a6ff18] 	tar: 
+ DEBUG [f0a6ff18] 	app: time stamp 2019-07-15 04:41:55 is 6335.439730858 s in the future
+tar: appveyor.yml: time stamp 2019-07-15 04:41:55 is 6335.439385922 s in the future
+tar: babel.config.js: time stamp 2019-07-15 04:41:55 is 6335.439330777 s in the future
+tar: build/.htaccess: time stamp 2019-07-15 04:41:55 is 6335.439263027 s in the future
+ DEBUG [f0a6ff18] 	tar: 
+ DEBUG [f0a6ff18] 	build/14.98045986d5fd658bbbd3.chunk.js: time stamp 2019-07-15 04:41:55 is 6335.437948221 s in the future
+ DEBUG [f0a6ff18] 	
+ DEBUG [f0a6ff18] 	tar: 
+ DEBUG [f0a6ff18] 	build/14.98045986d5fd658bbbd3.chunk.js.gz: time stamp 2019-07-15 04:41:55 is 6335.43581604 s in the future
+ DEBUG [f0a6ff18] 	
+ DEBUG [f0a6ff18] 	tar: 
+ DEBUG [f0a6ff18] 	build/15.9d2a65d3c95488503b97.chunk.js: time stamp 2019-07-15 04:41:55 is 6335.435242093 s in the future
+ DEBUG [f0a6ff18] 	
+tar: build/16.cbbc56b73148cdcd79aa.chunk.js: time stamp 2019-07-15 04:41:55 is 6335.434384223 s in the future
+tar: build/17.f80a4de9be2fa0295fc6.chunk.js: time stamp 2019-07-15 04:41:55 is 6335.434316013 s in the future
+tar: build/4.fd547a7ebf7fa7209e5e.chunk.js: time stamp 2019-07-15 04:41:55 is 6335.434282313 s in the future
+ DEBUG [f0a6ff18] 	tar: 
+ DEBUG [f0a6ff18] 	build/favicon.ico: time stamp 2019-07-15 04:41:55 is 6335.433360706 s in the future
+ DEBUG [f0a6ff18] 	
+tar: build/icon_120x120.2f7752bee9dcd06e998fd44640e47485.png: time stamp 2019-07-15 04:41:55 is 6335.432572166 s in the future
+tar: build/icon_128x128.e76c240129e3d6ee2eb7df8f1e9c7b0f.png: time stamp 2019-07-15 04:41:55 is 6335.432525992 s in the future
+tar: build/icon_144x144.f2f644149d1ca21bccb120d44e79c824.png: time stamp 2019-07-15 04:41:55 is 6335.432490697 s in the future
+tar: build/icon_152x152.80d43cecdc663299328632b85127117b.png: time stamp 2019-07-15 04:41:55 is 6335.432459973 s in the future
+ DEBUG [f0a6ff18] 	tar: 
+ DEBUG [f0a6ff18] 	build/icon_167x167.9085aba6ea24073fba72a94b7ac731a1.png: time stamp 2019-07-15 04:41:55 is 6335.431765696 s in the future
+ DEBUG [f0a6ff18] 	
+tar: build/icon_180x180.33285f999db78beed5640085c051e7b1.png: time stamp 2019-07-15 04:41:55 is 6335.431227692 s in the future
+tar: build/icon_192x192.9aeb7f7081bf5316fa2c57b439bffdbe.png: time stamp 2019-07-15 04:41:55 is 6335.431153459 s in the future
+ DEBUG [f0a6ff18] 	tar: build/icon_384x384.f2d8221e40ea55159668a02741826386.png: time stamp 2019-07-15 04:41:55 is 6335.429952027 s in the future
+tar: build/icon_512x512.dc20f8a86234c4a7a0b08d5cffff9d4d.png: time stamp 2019-07-15 04:41:55 is 6335.429764716 s in the future
+ DEBUG [f0a6ff18] 	tar: build/icon_72x72.0880a778e8031d3cb721b64c1c1059a7.png: time stamp 2019-07-15 04:41:55 is 6335.427168145 s in the future
+tar: build/icon_96x96.e26d703c83c9b5844bb4f58c397f4bf2.png: time stamp 2019-07-15 04:41:55 is 6335.427092365 s in the future
+tar: build/index.html: time stamp 2019-07-15 04:41:55 is 6335.427063603 s in the future
+ DEBUG [f0a6ff18] 	tar: 
+ DEBUG [f0a6ff18] 	build/main.ee4077b1b6eef7faa7fb.chunk.js: time stamp 2019-07-15 04:41:55 is 6335.425985871 s in the future
+ DEBUG [f0a6ff18] 	tar: 
+ DEBUG [f0a6ff18] 	build/main.ee4077b1b6eef7faa7fb.chunk.js.gz: time stamp 2019-07-15 04:41:55 is 6335.425013805 s in the future
+tar: build/manifest.0260cc93be6a86018c04998701cdae5b.json: time stamp 2019-07-15 04:41:55 is 6335.424701259 s in the future
+ DEBUG [f0a6ff18] 	tar: 
+ DEBUG [f0a6ff18] 	build/npm.babel.ad1e71d0a07fea4bb19c.chunk.js: time stamp 2019-07-15 04:41:55 is 6335.424385835 s in the future
+ DEBUG [f0a6ff18] 	tar: build/npm.connected-react-router.368edfa3c59066d77d2a.chunk.js: time stamp 2019-07-15 04:41:55 is 6335.423399862 s in the future
+ DEBUG [f0a6ff18] 	tar: build/npm.core-js.2245f8c0506dfe910350.chunk.js: time stamp 2019-07-15 04:41:55 is 6335.423006171 s in the future
+ DEBUG [f0a6ff18] 	tar: 
+ DEBUG [f0a6ff18] 	build/npm.core-js.2245f8c0506dfe910350.chunk.js.gz: time stamp 2019-07-15 04:41:55 is 6335.422158701 s in the future
+ DEBUG [f0a6ff18] 	tar: 
+ DEBUG [f0a6ff18] 	build/npm.intl.4f570d628d17626bef82.chunk.js: time stamp 2019-07-15 04:41:55 is 6335.421421497 s in the future
+ DEBUG [f0a6ff18] 	
+ DEBUG [f0a6ff18] 	tar: build/npm.intl.4f570d628d17626bef82.chunk.js.gz: time stamp 2019-07-15 04:41:55 is 6335.420436314 s in the future
+ DEBUG [f0a6ff18] 	tar: build/npm.lodash.535221272ed1239e7437.chunk.js: time stamp 2019-07-15 04:41:55 is 6335.420095382 s in the future
+ DEBUG [f0a6ff18] 	tar: build/npm.lodash.535221272ed1239e7437.chunk.js.gz: time stamp 2019-07-15 04:41:55 is 6335.404709535 s in the future
+ DEBUG [f0a6ff18] 	tar: 
+ DEBUG [f0a6ff18] 	build/npm.material-ui.69645e7efe3c586c74fb.chunk.js: time stamp 2019-07-15 04:41:55 is 6335.398961047 s in the future
+ DEBUG [f0a6ff18] 	tar: 
+ DEBUG [f0a6ff18] 	build/npm.material-ui.69645e7efe3c586c74fb.chunk.js.gz: time stamp 2019-07-15 04:41:55 is 6335.396201421 s in the future
+ DEBUG [f0a6ff18] 	
+ DEBUG [f0a6ff18] 	tar: 
+ DEBUG [f0a6ff18] 	build/npm.react-app-polyfill.1c85ea4a4c368d6cb69a.chunk.js: time stamp 2019-07-15 04:41:55 is 6335.395083805 s in the future
+ DEBUG [f0a6ff18] 	
+ DEBUG [f0a6ff18] 	tar: 
+ DEBUG [f0a6ff18] 	build/npm.react-app-polyfill.1c85ea4a4c368d6cb69a.chunk.js.gz: time stamp 2019-07-15 04:41:55 is 6335.394054334 s in the future
+ DEBUG [f0a6ff18] 	tar: build/npm.react-redux.ae925877c780b3687348.chunk.js: time stamp 2019-07-15 04:41:55 is 6335.393104532 s in the future
+tar: build/npm.react-redux.ae925877c780b3687348.chunk.js.gz: time stamp 2019-07-15 04:41:55 is 6335.393019647 s in the future
+tar: build/npm.react-transition-group.003bdd27af7f05991442.chunk.js: time stamp 2019-07-15 04:41:55 is 6335.392957945 s in the future
+tar: build/npm.react-transition-group.003bdd27af7f05991442.chunk.js.gz: time stamp 2019-07-15 04:41:55 is 6335.392869037 s in the future
+ DEBUG [f0a6ff18] 	tar: build/npm.redux-saga.d0b69ac66a8dd48ddd06.chunk.js: time stamp 2019-07-15 04:41:55 is 6335.392315103 s in the future
+ DEBUG [f0a6ff18] 	tar: build/npm.redux-saga.d0b69ac66a8dd48ddd06.chunk.js.gz: time stamp 2019-07-15 04:41:55 is 6335.391729417 s in the future
+tar: build/npm.webpack.4dba867308d911c81c90.chunk.js: time stamp 2019-07-15 04:41:55 is 6335.391669698 s in the future
+ DEBUG [f0a6ff18] 	tar: build/runtime.1217a37417c6e2b83930.js: time stamp 2019-07-15 04:41:55 is 6335.391374919 s in the future
+ DEBUG [f0a6ff18] 	tar: build/sw.js: time stamp 2019-07-15 04:41:55 is 6335.390784271 s in the future
+tar: build/sw.js.gz: time stamp 2019-07-15 04:41:55 is 6335.390727038 s in the future
+tar: build: time stamp 2019-07-15 04:41:55 is 6335.390713762 s in the future
+ DEBUG [f0a6ff18] 	tar: docs/README.md: time stamp 2019-07-15 04:41:55 is 6335.390382777 s in the future
+tar: docs/css/README.md: time stamp 2019-07-15 04:41:55 is 6335.390317593 s in the future
+tar: docs/css/linting.md: time stamp 2019-07-15 04:41:55 is 6335.390293374 s in the future
+tar: docs/css/remove.md: time stamp 2019-07-15 04:41:55 is 6335.390270442 s in the future
+tar: docs/css/sanitize.md: time stamp 2019-07-15 04:41:55 is 6335.39024708 s in the future
+tar: docs/css: time stamp 2019-07-15 04:41:55 is 6335.390235706 s in the future
+tar: docs/forks/README.md: time stamp 2019-07-15 04:41:55 is 6335.390204076 s in the future
+tar: docs/forks: time stamp 2019-07-15 04:41:55 is 6335.390193207 s in the future
+ DEBUG [f0a6ff18] 	tar: 
+ DEBUG [f0a6ff18] 	docs/general/README.md: time stamp 2019-07-15 04:41:55 is 6335.387774737 s in the future
+ DEBUG [f0a6ff18] 	
+tar: docs/general/commands.md: time stamp 2019-07-15 04:41:55 is 6335.387345586 s in the future
+tar: docs/general/components.md: time stamp 2019-07-15 04:41:55 is 6335.387313436 s in the future
+tar: docs/general/debugging.md: time stamp 2019-07-15 04:41:55 is 6335.387237701 s in the future
+tar: docs/general/deployment.md: time stamp 2019-07-15 04:41:55 is 6335.387203401 s in the future
+tar: docs/general/editor.md: time stamp 2019-07-15 04:41:55 is 6335.38717855 s in the future
+tar: docs/general/faq.md: time stamp 2019-07-15 04:41:55 is 6335.387149954 s in the future
+tar: docs/general/files.md: time stamp 2019-07-15 04:41:55 is 6335.387128303 s in the future
+tar: docs/general/gotchas.md: time stamp 2019-07-15 04:41:55 is 6335.387105355 s in the future
+ DEBUG [f0a6ff18] 	tar: 
+ DEBUG [f0a6ff18] 	docs/general/introduction.md: time stamp 2019-07-15 04:41:55 is 6335.386900345 s in the future
+ DEBUG [f0a6ff18] 	
+ DEBUG [f0a6ff18] 	tar: 
+ DEBUG [f0a6ff18] 	docs/general/remove.md: time stamp 2019-07-15 04:41:55 is 6335.386255679 s in the future
+ DEBUG [f0a6ff18] 	tar: docs/general/server-configs.md: time stamp 2019-07-15 04:41:55 is 6335.385835281 s in the future
+ DEBUG [f0a6ff18] 	tar: docs/general/webstorm-debug.png: time stamp 2019-07-15 04:41:55 is 6335.384605211 s in the future
+ DEBUG [f0a6ff18] 	tar: docs/general/webstorm-eslint.png: time stamp 2019-07-15 04:41:55 is 6335.383665093 s in the future
+ DEBUG [f0a6ff18] 	tar: docs/general/workflow.png: time stamp 2019-07-15 04:41:55 is 6335.383271535 s in the future
+tar: docs/general: time stamp 2019-07-15 04:41:55 is 6335.383243531 s in the future
+ DEBUG [f0a6ff18] 	tar: docs/js/README.md: time stamp 2019-07-15 04:41:55 is 6335.382839779 s in the future
+tar: docs/js/async-components.md: time stamp 2019-07-15 04:41:55 is 6335.382791979 s in the future
+tar: docs/js/i18n.md: time stamp 2019-07-15 04:41:55 is 6335.382766197 s in the future
+ DEBUG [f0a6ff18] 	tar: docs/js/immer.md: time stamp 2019-07-15 04:41:55 is 6335.382377769 s in the future
+tar: docs/js/redux-saga.md: time stamp 2019-07-15 04:41:55 is 6335.382320057 s in the future
+tar: docs/js/redux.md: time stamp 2019-07-15 04:41:55 is 6335.382288292 s in the future
+ DEBUG [f0a6ff18] 	tar: docs/js/remove.md: time stamp 2019-07-15 04:41:55 is 6335.38177703 s in the future
+tar: docs/js/reselect.md: time stamp 2019-07-15 04:41:55 is 6335.381703908 s in the future
+tar: docs/js/routing.md: time stamp 2019-07-15 04:41:55 is 6335.381663743 s in the future
+tar: docs/js: time stamp 2019-07-15 04:41:55 is 6335.381645523 s in the future
+ DEBUG [f0a6ff18] 	tar: docs/maintenance/dependency.md: time stamp 2019-07-15 04:41:55 is 6335.381159792 s in the future
+tar: docs/maintenance: time stamp 2019-07-15 04:41:55 is 6335.381116207 s in the future
+ DEBUG [f0a6ff18] 	tar: 
+ DEBUG [f0a6ff18] 	docs/testing/README.md: time stamp 2019-07-15 04:41:55 is 6335.378412051 s in the future
+ DEBUG [f0a6ff18] 	
+ DEBUG [f0a6ff18] 	tar: 
+ DEBUG [f0a6ff18] 	docs/testing/component-testing.md: time stamp 2019-07-15 04:41:55 is 6335.377609314 s in the future
+ DEBUG [f0a6ff18] 	
+tar: docs/testing/remote-testing.md: time stamp 2019-07-15 04:41:55 is 6335.3770683 s in the future
+ DEBUG [f0a6ff18] 	tar: docs/testing/unit-testing.md: time stamp 2019-07-15 04:41:55 is 6335.376583743 s in the future
+tar: docs/testing: time stamp 2019-07-15 04:41:55 is 6335.37653719 s in the future
+tar: docs: time stamp 2019-07-15 04:41:55 is 6335.376521229 s in the future
+tar: internals/generators/component/index.js: time stamp 2019-07-15 04:41:55 is 6335.376221298 s in the future
+tar: internals/generators/component/index.js.hbs: time stamp 2019-07-15 04:41:55 is 6335.375927211 s in the future
+tar: internals/generators/component/loadable.js.hbs: time stamp 2019-07-15 04:41:55 is 6335.375847657 s in the future
+tar: internals/generators/component/messages.js.hbs: time stamp 2019-07-15 04:41:55 is 6335.375811198 s in the future
+ DEBUG [f0a6ff18] 	tar: 
+ DEBUG [f0a6ff18] 	internals/generators/component/test.js.hbs: time stamp 2019-07-15 04:41:55 is 6335.374743815 s in the future
+ DEBUG [f0a6ff18] 	
+ DEBUG [f0a6ff18] 	tar: 
+ DEBUG [f0a6ff18] 	internals/generators/component: time stamp 2019-07-15 04:41:55 is 6335.374065056 s in the future
+ DEBUG [f0a6ff18] 	
+tar: internals/generators/container/actions.js.hbs: time stamp 2019-07-15 04:41:55 is 6335.373619936 s in the future
+tar: internals/generators/container/actions.test.js.hbs: time stamp 2019-07-15 04:41:55 is 6335.373574989 s in the future
+tar: internals/generators/container/constants.js.hbs: time stamp 2019-07-15 04:41:55 is 6335.373543088 s in the future
+tar: internals/generators/container/index.js: time stamp 2019-07-15 04:41:55 is 6335.373412746 s in the future
+tar: internals/generators/container/index.js.hbs: time stamp 2019-07-15 04:41:55 is 6335.37337597 s in the future
+tar: internals/generators/container/messages.js.hbs: time stamp 2019-07-15 04:41:55 is 6335.373345991 s in the future
+tar: internals/generators/container/reducer.js.hbs: time stamp 2019-07-15 04:41:55 is 6335.373315463 s in the future
+tar: internals/generators/container/reducer.test.js.hbs: time stamp 2019-07-15 04:41:55 is 6335.373285878 s in the future
+tar: internals/generators/container/saga.js.hbs: time stamp 2019-07-15 04:41:55 is 6335.373255286 s in the future
+tar: internals/generators/container/saga.test.js.hbs: time stamp 2019-07-15 04:41:55 is 6335.373225554 s in the future
+tar: internals/generators/container/selectors.js.hbs: time stamp 2019-07-15 04:41:55 is 6335.373194617 s in the future
+tar: internals/generators/container/selectors.test.js.hbs: time stamp 2019-07-15 04:41:55 is 6335.373161058 s in the future
+tar: internals/generators/container/test.js.hbs: time stamp 2019-07-15 04:41:55 is 6335.373129723 s in the future
+tar: internals/generators/container: time stamp 2019-07-15 04:41:55 is 6335.373112958 s in the future
+tar: internals/generators/index.js: time stamp 2019-07-15 04:41:55 is 6335.373081621 s in the future
+tar: internals/generators/language/add-locale-data.hbs: time stamp 2019-07-15 04:41:55 is 6335.373025732 s in the future
+tar: internals/generators/language/app-locale.hbs: time stamp 2019-07-15 04:41:55 is 6335.372993283 s in the future
+tar: internals/generators/language/format-translation-messages.hbs: time stamp 2019-07-15 04:41:55 is 6335.372961628 s in the future
+tar: internals/generators/language/index.js: time stamp 2019-07-15 04:41:55 is 6335.372926452 s in the future
+tar: internals/generators/language/intl-locale-data.hbs: time stamp 2019-07-15 04:41:55 is 6335.372893784 s in the future
+tar: internals/generators/language/polyfill-intl-locale.hbs: time stamp 2019-07-15 04:41:55 is 6335.372862795 s in the future
+tar: internals/generators/language/translation-messages.hbs: time stamp 2019-07-15 04:41:55 is 6335.372834954 s in the future
+tar: internals/generators/language/translations-json.hbs: time stamp 2019-07-15 04:41:55 is 6335.372809116 s in the future
+tar: internals/generators/language: time stamp 2019-07-15 04:41:55 is 6335.372795085 s in the future
+tar: internals/generators/utils/componentExists.js: time stamp 2019-07-15 04:41:55 is 6335.372752468 s in the future
+tar: internals/generators/utils: time stamp 2019-07-15 04:41:55 is 6335.372737204 s in the future
+tar: internals/generators: time stamp 2019-07-15 04:41:55 is 6335.372727911 s in the future
+tar: internals/mocks/cssModule.js: time stamp 2019-07-15 04:41:55 is 6335.372678569 s in the future
+tar: internals/mocks/image.js: time stamp 2019-07-15 04:41:55 is 6335.372645381 s in the future
+tar: internals/mocks: time stamp 2019-07-15 04:41:55 is 6335.372629457 s in the future
+tar: internals/scripts/analyze.js: time stamp 2019-07-15 04:41:55 is 6335.372526615 s in the future
+tar: internals/scripts/clean.js: time stamp 2019-07-15 04:41:55 is 6335.372477505 s in the future
+tar: internals/scripts/extract-intl.js: time stamp 2019-07-15 04:41:55 is 6335.372443807 s in the future
+ DEBUG [f0a6ff18] 	tar: 
+ DEBUG [f0a6ff18] 	internals/scripts/generate-templates-for-linting.js: time stamp 2019-07-15 04:41:55 is 6335.371651805 s in the future
+ DEBUG [f0a6ff18] 	
+ DEBUG [f0a6ff18] 	tar: 
+ DEBUG [f0a6ff18] 	internals/scripts/helpers/checkmark.js: time stamp 2019-07-15 04:41:55 is 6335.37068418 s in the future
+ DEBUG [f0a6ff18] 	
+ DEBUG [f0a6ff18] 	tar: 
+ DEBUG [f0a6ff18] 	internals/scripts/helpers/get-npm-config.js: time stamp 2019-07-15 04:41:55 is 6335.369565306 s in the future
+tar: internals/scripts/helpers/progress.js: time stamp 2019-07-15 04:41:55 is 6335.369006349 s in the future
+tar: internals/scripts/helpers/xmark.js: time stamp 2019-07-15 04:41:55 is 6335.368953982 s in the future
+tar: internals/scripts/helpers: time stamp 2019-07-15 04:41:55 is 6335.368933769 s in the future
+tar: internals/scripts/npmcheckversion.js: time stamp 2019-07-15 04:41:55 is 6335.368833398 s in the future
+tar: internals/scripts: time stamp 2019-07-15 04:41:55 is 6335.368796062 s in the future
+tar: internals/templates/app.js: time stamp 2019-07-15 04:41:55 is 6335.368652357 s in the future
+tar: internals/templates/configureStore.js: time stamp 2019-07-15 04:41:55 is 6335.368606481 s in the future
+tar: internals/templates/containers/App/constants.js: time stamp 2019-07-15 04:41:55 is 6335.368519297 s in the future
+tar: internals/templates/containers/App/index.js: time stamp 2019-07-15 04:41:55 is 6335.368478945 s in the future
+tar: internals/templates/containers/App/selectors.js: time stamp 2019-07-15 04:41:55 is 6335.368446689 s in the future
+tar: internals/templates/containers/App/tests/__snapshots__/index.test.js.snap: time stamp 2019-07-15 04:41:55 is 6335.368361713 s in the future
+tar: internals/templates/containers/App/tests/__snapshots__: time stamp 2019-07-15 04:41:55 is 6335.368340755 s in the future
+tar: internals/templates/containers/App/tests/index.test.js: time stamp 2019-07-15 04:41:55 is 6335.368311256 s in the future
+tar: internals/templates/containers/App/tests/selectors.test.js: time stamp 2019-07-15 04:41:55 is 6335.368277347 s in the future
+tar: internals/templates/containers/App/tests: time stamp 2019-07-15 04:41:55 is 6335.368261053 s in the future
+tar: internals/templates/containers/App: time stamp 2019-07-15 04:41:55 is 6335.368249753 s in the future
+tar: internals/templates/containers/HomePage/Loadable.js: time stamp 2019-07-15 04:41:55 is 6335.368194798 s in the future
+tar: internals/templates/containers/HomePage/index.js: time stamp 2019-07-15 04:41:55 is 6335.368157222 s in the future
+tar: internals/templates/containers/HomePage/messages.js: time stamp 2019-07-15 04:41:55 is 6335.368123628 s in the future
+tar: internals/templates/containers/HomePage/tests/__snapshots__/index.test.js.snap: time stamp 2019-07-15 04:41:55 is 6335.368046868 s in the future
+tar: internals/templates/containers/HomePage/tests/__snapshots__: time stamp 2019-07-15 04:41:55 is 6335.368027587 s in the future
+tar: internals/templates/containers/HomePage/tests/index.test.js: time stamp 2019-07-15 04:41:55 is 6335.368001166 s in the future
+tar: internals/templates/containers/HomePage/tests: time stamp 2019-07-15 04:41:55 is 6335.367983258 s in the future
+tar: internals/templates/containers/HomePage: time stamp 2019-07-15 04:41:55 is 6335.36797139 s in the future
+tar: internals/templates/containers/LanguageProvider/actions.js: time stamp 2019-07-15 04:41:55 is 6335.367912265 s in the future
+tar: internals/templates/containers/LanguageProvider/constants.js: time stamp 2019-07-15 04:41:55 is 6335.367878753 s in the future
+tar: internals/templates/containers/LanguageProvider/index.js: time stamp 2019-07-15 04:41:55 is 6335.367821516 s in the future
+tar: internals/templates/containers/LanguageProvider/reducer.js: time stamp 2019-07-15 04:41:55 is 6335.367795461 s in the future
+tar: internals/templates/containers/LanguageProvider/selectors.js: time stamp 2019-07-15 04:41:55 is 6335.367774363 s in the future
+tar: internals/templates/containers/LanguageProvider: time stamp 2019-07-15 04:41:55 is 6335.367763794 s in the future
+tar: internals/templates/containers/NotFoundPage/Loadable.js: time stamp 2019-07-15 04:41:55 is 6335.367730036 s in the future
+tar: internals/templates/containers/NotFoundPage/index.js: time stamp 2019-07-15 04:41:55 is 6335.367708808 s in the future
+tar: internals/templates/containers/NotFoundPage/messages.js: time stamp 2019-07-15 04:41:55 is 6335.367687196 s in the future
+tar: internals/templates/containers/NotFoundPage/tests/__snapshots__/index.test.js.snap: time stamp 2019-07-15 04:41:55 is 6335.367638897 s in the future
+tar: internals/templates/containers/NotFoundPage/tests/__snapshots__: time stamp 2019-07-15 04:41:55 is 6335.367626631 s in the future
+tar: internals/templates/containers/NotFoundPage/tests/index.test.js: time stamp 2019-07-15 04:41:55 is 6335.367608433 s in the future
+tar: internals/templates/containers/NotFoundPage/tests: time stamp 2019-07-15 04:41:55 is 6335.367598021 s in the future
+tar: internals/templates/containers/NotFoundPage: time stamp 2019-07-15 04:41:55 is 6335.367591523 s in the future
+tar: internals/templates/containers: time stamp 2019-07-15 04:41:55 is 6335.367585352 s in the future
+tar: internals/templates/global-styles.js: time stamp 2019-07-15 04:41:55 is 6335.367568308 s in the future
+tar: internals/templates/i18n.js: time stamp 2019-07-15 04:41:55 is 6335.367547504 s in the future
+tar: internals/templates/index.html: time stamp 2019-07-15 04:41:55 is 6335.367526689 s in the future
+tar: internals/templates/reducers.js: time stamp 2019-07-15 04:41:55 is 6335.367503981 s in the future
+tar: internals/templates/tests/i18n.test.js: time stamp 2019-07-15 04:41:55 is 6335.367466164 s in the future
+tar: internals/templates/tests/store.test.js: time stamp 2019-07-15 04:41:55 is 6335.367445688 s in the future
+tar: internals/templates/tests: time stamp 2019-07-15 04:41:55 is 6335.367435319 s in the future
+tar: internals/templates/translations/en.json: time stamp 2019-07-15 04:41:55 is 6335.367404293 s in the future
+tar: internals/templates/translations: time stamp 2019-07-15 04:41:55 is 6335.367393283 s in the future
+tar: internals/templates/utils/checkStore.js: time stamp 2019-07-15 04:41:55 is 6335.367363141 s in the future
+tar: internals/templates/utils/constants.js: time stamp 2019-07-15 04:41:55 is 6335.367342773 s in the future
+tar: internals/templates/utils/history.js: time stamp 2019-07-15 04:41:55 is 6335.367322939 s in the future
+tar: internals/templates/utils/injectReducer.js: time stamp 2019-07-15 04:41:55 is 6335.367296276 s in the future
+tar: internals/templates/utils/injectSaga.js: time stamp 2019-07-15 04:41:55 is 6335.367156068 s in the future
+tar: internals/templates/utils/loadable.js: time stamp 2019-07-15 04:41:55 is 6335.367132402 s in the future
+tar: internals/templates/utils/reducerInjectors.js: time stamp 2019-07-15 04:41:55 is 6335.367111633 s in the future
+tar: internals/templates/utils/sagaInjectors.js: time stamp 2019-07-15 04:41:55 is 6335.367091928 s in the future
+ DEBUG [f0a6ff18] 	tar: 
+ DEBUG [f0a6ff18] 	internals/templates/utils/tests/checkStore.test.js: time stamp 2019-07-15 04:41:55 is 6335.364273834 s in the future
+ DEBUG [f0a6ff18] 	
+ DEBUG [f0a6ff18] 	tar: 
+ DEBUG [f0a6ff18] 	internals/templates/utils/tests/injectReducer.test.js: time stamp 2019-07-15 04:41:55 is 6335.362361157 s in the future
+ DEBUG [f0a6ff18] 	
+ DEBUG [f0a6ff18] 	tar: internals/templates/utils/tests/injectSaga.test.js: time stamp 2019-07-15 04:41:55 is 6335.361571345 s in the future
+tar: internals/templates/utils/tests/reducerInjectors.test.js: time stamp 2019-07-15 04:41:55 is 6335.361385679 s in the future
+tar: internals/templates/utils/tests/sagaInjectors.test.js: time stamp 2019-07-15 04:41:55 is 6335.361340871 s in the future
+tar: internals/templates/utils/tests: time stamp 2019-07-15 04:41:55 is 6335.361309505 s in the future
+tar: internals/templates/utils: time stamp 2019-07-15 04:41:55 is 6335.361301597 s in the future
+tar: internals/templates: time stamp 2019-07-15 04:41:55 is 6335.361294889 s in the future
+tar: internals/testing/test-bundler.js: time stamp 2019-07-15 04:41:55 is 6335.361239532 s in the future
+tar: internals/testing: time stamp 2019-07-15 04:41:55 is 6335.361222766 s in the future
+ DEBUG [f0a6ff18] 	tar: 
+ DEBUG [f0a6ff18] 	internals/webpack/webpack.base.babel.js: time stamp 2019-07-15 04:41:55 is 6335.360107559 s in the future
+ DEBUG [f0a6ff18] 	
+ DEBUG [f0a6ff18] 	tar: internals/webpack/webpack.dev.babel.js: time stamp 2019-07-15 04:41:55 is 6335.359657522 s in the future
+tar: internals/webpack/webpack.prod.babel.js: time stamp 2019-07-15 04:41:55 is 6335.359601786 s in the future
+tar: internals/webpack: time stamp 2019-07-15 04:41:55 is 6335.359581962 s in the future
+tar: internals: time stamp 2019-07-15 04:41:55 is 6335.359568671 s in the future
+tar: jest.config.js: time stamp 2019-07-15 04:41:55 is 6335.35953607 s in the future
+ DEBUG [f0a6ff18] 	tar: 
+ DEBUG [f0a6ff18] 	package-lock.json: time stamp 2019-07-15 04:41:55 is 6335.357645701 s in the future
+ DEBUG [f0a6ff18] 	
+ DEBUG [f0a6ff18] 	tar: 
+ DEBUG [f0a6ff18] 	package.json: time stamp 2019-07-15 04:41:55 is 6335.356921828 s in the future
+ DEBUG [f0a6ff18] 	
+ DEBUG [f0a6ff18] 	tar: server/argv.js: time stamp 2019-07-15 04:41:55 is 6335.356037259 s in the future
+tar: server/index.js: time stamp 2019-07-15 04:41:55 is 6335.35589019 s in the future
+tar: server/logger.js: time stamp 2019-07-15 04:41:55 is 6335.355837971 s in the future
+tar: server/middlewares/addDevMiddlewares.js: time stamp 2019-07-15 04:41:55 is 6335.355683693 s in the future
+tar: server/middlewares/addProdMiddlewares.js: time stamp 2019-07-15 04:41:55 is 6335.355649207 s in the future
+tar: server/middlewares/frontendMiddleware.js: time stamp 2019-07-15 04:41:55 is 6335.355619718 s in the future
+tar: server/middlewares: time stamp 2019-07-15 04:41:55 is 6335.355604322 s in the future
+tar: server/port.js: time stamp 2019-07-15 04:41:55 is 6335.355579833 s in the future
+tar: server: time stamp 2019-07-15 04:41:55 is 6335.355558848 s in the future
+  INFO [f0a6ff18] Finished in 0.155 seconds with exit status 0 (successful).
+ DEBUG [c2d4ac97] Running if test ! -d /home/deploy/ellobo/repo; then echo "Directory does not exist '/home/deploy/ellobo/repo'" 1>&2; false; fi as deploy@localhost
+ DEBUG [c2d4ac97] Command: if test ! -d /home/deploy/ellobo/repo; then echo "Directory does not exist '/home/deploy/ellobo/repo'" 1>&2; false; fi
+ DEBUG [c2d4ac97] Finished in 0.005 seconds with exit status 0 (successful).
+ DEBUG [2db5b6c6] Running /usr/bin/env git rev-list --max-count=1 master as deploy@localhost
+ DEBUG [2db5b6c6] Command: cd /home/deploy/ellobo/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-ellobo-production-dthtien.sh" ; /usr/bin/env git rev-list --max-count=1 master )
+ DEBUG [2db5b6c6] 	588528f5a0c5613f4e05cd880c274db048b67ad1
+ DEBUG [2db5b6c6] Finished in 0.014 seconds with exit status 0 (successful).
+ DEBUG [1a7bb2bf] Running if test ! -d /home/deploy/ellobo/releases/20190715044947; then echo "Directory does not exist '/home/deploy/ellobo/releases/20190715044947'" 1>&2; false; fi as deploy@localhost
+ DEBUG [1a7bb2bf] Command: if test ! -d /home/deploy/ellobo/releases/20190715044947; then echo "Directory does not exist '/home/deploy/ellobo/releases/20190715044947'" 1>&2; false; fi
+ DEBUG [1a7bb2bf] Finished in 0.006 seconds with exit status 0 (successful).
+  INFO [3045715a] Running /usr/bin/env echo "588528f5a0c5613f4e05cd880c274db048b67ad1" > REVISION as deploy@localhost
+ DEBUG [3045715a] Command: cd /home/deploy/ellobo/releases/20190715044947 && /usr/bin/env echo "588528f5a0c5613f4e05cd880c274db048b67ad1" > REVISION
+  INFO [3045715a] Finished in 0.007 seconds with exit status 0 (successful).
+  INFO [e36160b8] Running /usr/bin/env ln -s /home/deploy/ellobo/releases/20190715044947 /home/deploy/ellobo/releases/current as deploy@localhost
+ DEBUG [e36160b8] Command: /usr/bin/env ln -s /home/deploy/ellobo/releases/20190715044947 /home/deploy/ellobo/releases/current
+  INFO [e36160b8] Finished in 0.012 seconds with exit status 0 (successful).
+  INFO [94e85a58] Running /usr/bin/env mv /home/deploy/ellobo/releases/current /home/deploy/ellobo as deploy@localhost
+ DEBUG [94e85a58] Command: /usr/bin/env mv /home/deploy/ellobo/releases/current /home/deploy/ellobo
+  INFO [94e85a58] Finished in 0.008 seconds with exit status 0 (successful).
+ DEBUG [dd947b00] Running /usr/bin/env ls -x /home/deploy/ellobo/releases as deploy@localhost
+ DEBUG [dd947b00] Command: /usr/bin/env ls -x /home/deploy/ellobo/releases
+ DEBUG [dd947b00] 	20190714015005	20190714041029	20190714083247	20190715015611	20190715044947
+ DEBUG [dd947b00] Finished in 0.006 seconds with exit status 0 (successful).
+  INFO Keeping 5 of 5 deployed releases on localhost
+ DEBUG [593c3861] Running [ -d /home/deploy/ellobo/current ] as deploy@localhost
+ DEBUG [593c3861] Command: [ -d /home/deploy/ellobo/current ]
+ DEBUG [593c3861] Finished in 0.004 seconds with exit status 0 (successful).
+ DEBUG [b7a878d3] Running /usr/bin/env readlink /home/deploy/ellobo/current as deploy@localhost
+ DEBUG [b7a878d3] Command: /usr/bin/env readlink /home/deploy/ellobo/current
+ DEBUG [b7a878d3] 	/home/deploy/ellobo/releases/20190715044947
+ DEBUG [b7a878d3] Finished in 0.006 seconds with exit status 0 (successful).
+  INFO No old releases (keeping newest 5) on localhost
+ DEBUG [88cd1315] Running if test ! -d /home/deploy/ellobo/releases; then echo "Directory does not exist '/home/deploy/ellobo/releases'" 1>&2; false; fi as deploy@localhost
+ DEBUG [88cd1315] Command: if test ! -d /home/deploy/ellobo/releases; then echo "Directory does not exist '/home/deploy/ellobo/releases'" 1>&2; false; fi
+ DEBUG [88cd1315] Finished in 0.006 seconds with exit status 0 (successful).
+  INFO [20bd3256] Running /usr/bin/env echo "Branch master (at 588528f5a0c5613f4e05cd880c274db048b67ad1) deployed as release 20190715044947 by dthtien" >> /home/deploy/ellobo/revisions.log as deploy@localhost
+ DEBUG [20bd3256] Command: cd /home/deploy/ellobo/releases && /usr/bin/env echo "Branch master (at 588528f5a0c5613f4e05cd880c274db048b67ad1) deployed as release 20190715044947 by dthtien" >> /home/deploy/ellobo/revisions.log
+  INFO [20bd3256] Finished in 0.005 seconds with exit status 0 (successful).

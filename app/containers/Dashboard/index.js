@@ -1,19 +1,36 @@
+/* eslint-disable react-hooks/rules-of-hooks */
+/* eslint-disable prettier/prettier */
 /* eslint-disable import/no-unresolved */
 /* eslint-disable quotes */
 /* eslint-disable react/destructuring-assignment */
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { compose } from 'redux';
+import { compose, bindActionCreators } from 'redux';
 import { createStructuredSelector } from 'reselect';
 import { useInjectReducer } from 'utils/injectReducer';
 import { useInjectSaga } from 'utils/injectSaga';
-import { Typography } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core';
 import CompossedLineBarArea from './CompossedLineBarArea';
-import reducer, { addressesSelector, saga, index } from './duck';
+import reducer, {
+  addressesSelector,
+  saga,
+  index,
+  addressNamesSelector,
+  getAddressNames,
+} from './duck';
+import styles from './styles';
+import SearchForm from './SearchForm';
+
 const key = 'dashboard';
 
-export function Dashboard({ addresses, getAddresses }) {
+export function Dashboard({
+  addresses,
+  getAddresses,
+  addressNames,
+  // eslint-disable-next-line no-shadow
+  getAddressNames
+}) {
   useInjectReducer({ key, reducer });
   useInjectSaga({ key, saga });
 
@@ -21,29 +38,46 @@ export function Dashboard({ addresses, getAddresses }) {
     if (!addresses.data) {
       getAddresses();
     }
+
+    if (!addressNames.data) {
+      getAddressNames();
+    }
   }, []);
 
+  const useStyles = makeStyles(styles);
+
+  const { data: names, loading, error } = addressNames;
+  const classes = useStyles();
+  let suggestions;
+  if (names) {
+    suggestions = names.data.map(({ attributes }) => ({
+      label: attributes.name,
+      value: attributes.alias_name,
+    }));
+  }
   return (
     <div>
-      <Typography variant="subtitle1">
-        Search component will come here
-      </Typography>
+      <SearchForm {...{ error, names, loading, classes, suggestions }} />
       <CompossedLineBarArea addresses={addresses} />
     </div>
   );
 }
 
 const mapDispatchToProps = dispatch => ({
-  getAddresses: (params = {}) => dispatch(index(params)),
+  getAddresses: bindActionCreators(index, dispatch),
+  getAddressNames: bindActionCreators(getAddressNames, dispatch),
 });
 
 const mapStateToProps = createStructuredSelector({
   addresses: addressesSelector(),
+  addressNames: addressNamesSelector(),
 });
 
 Dashboard.propTypes = {
   getAddresses: PropTypes.func.isRequired,
   addresses: PropTypes.object.isRequired,
+  getAddressNames: PropTypes.func.isRequired,
+  addressNames: PropTypes.object.isRequired,
 };
 
 const withConnect = connect(

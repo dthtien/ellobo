@@ -16,4 +16,17 @@ export const indexError = error => ({
   payload: error,
 });
 
-export const create = () => {};
+export const getAddressNames = (params = {}) => ({
+  type: types.GET_ADDRESS_NAMES,
+  payload: params,
+});
+
+export const getAddressNamesSuccess = data => ({
+  type: types.GET_ADDRESS_NAMES_SUCCESS,
+  payload: data,
+});
+
+export const getAddressNamesError = error => ({
+  type: types.GET_ADDRESS_NAMES_ERROR,
+  payload: error,
+});

@@ -12,7 +12,6 @@ import { Switch, Route } from 'react-router-dom';
 
 import FeaturePage from 'containers/FeaturePage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
-import Header from 'components/Header';
 import Footer from 'components/Footer';
 import { Button, makeStyles, Container } from '@material-ui/core';
 import { Dashboard } from '../pageListAsync';
@@ -55,7 +54,6 @@ export default function App() {
       >
         Open
       </Button>
-      <Header />
       <Container>
         <Switch>
           <Route exact path="/" component={Dashboard} />

@@ -1,3 +1,3 @@
 import LoadingIndicator from './LoadingIndicator';
-
-export { LoadingIndicator };
+import AddressNamesSelector from './AddressNamesSelector';
+export { LoadingIndicator, AddressNamesSelector };
