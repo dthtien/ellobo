@@ -18,7 +18,7 @@ export default class BaseApi {
 
   index = (params = {}) =>
     this.httpClient()
-      .get(this.className, params)
+      .get(this.className, { params })
       .then(response => response.data.data)
       .catch(err => {
         throw err;
