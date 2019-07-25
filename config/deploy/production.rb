@@ -1,6 +1,6 @@
 set :user, 'deploy'
 
-server 'localhost', user: fetch(:user), roles: %w[app db web], port: '2200'
+server 'ellobo.ml', user: fetch(:user), roles: %w[app db web]
 
 set :deploy_to, "/home/#{fetch :user}/#{fetch :application}"
 
