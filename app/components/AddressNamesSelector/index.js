@@ -16,13 +16,19 @@ const loadOptions = inputValue => {
   );
 };
 
-const AddressNamesSelector = ({ customStyles, defaultValue, options }) => (
+const AddressNamesSelector = ({
+  customStyles,
+  defaultValue,
+  options,
+  handleSelectChange,
+}) => (
   <AsyncSelect
     components={animatedComponents}
     cacheOptions
     loadOptions={loadOptions}
     defaultOptions={options}
     isMulti
+    onChange={handleSelectChange}
     styles={customStyles}
     defaultValue={defaultValue}
   />
@@ -32,6 +38,7 @@ AddressNamesSelector.propTypes = {
   customStyles: PropTypes.object.isRequired,
   defaultValue: PropTypes.array,
   options: PropTypes.array.isRequired,
+  handleSelectChange: PropTypes.func.isRequired,
 };
 
 export default AddressNamesSelector;

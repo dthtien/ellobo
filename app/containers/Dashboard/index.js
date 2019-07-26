@@ -44,6 +44,11 @@ export function Dashboard({
     }
   }, []);
 
+  const handleSearch = (searchingAddresses) => {
+    const searchingAddressName = searchingAddresses.map(({value}) => value)
+    getAddresses({ address_names: searchingAddressName });
+  }
+
   const useStyles = makeStyles(styles);
 
   const { data: names, loading, error } = addressNames;
@@ -57,7 +62,11 @@ export function Dashboard({
   }
   return (
     <div>
-      <SearchForm {...{ error, names, loading, classes, suggestions }} />
+      <SearchForm
+        {...{
+          error, names, loading, classes, suggestions, onSearch: handleSearch
+        }}
+      />
       <CompossedLineBarArea addresses={addresses} />
     </div>
   );
