@@ -42,10 +42,13 @@ export default function App() {
       classes={classes}
     >
       <Helmet
-        titleTemplate="%s - React.js Boilerplate"
-        defaultTitle="React.js Boilerplate"
+        titleTemplate="Ellobo - Real estate market researcher"
+        defaultTitle="Ellobo - Real estate market researcher"
       >
-        <meta name="description" content="A React.js Boilerplate application" />
+        <meta
+          name="description"
+          content="Ellobo - Real estate market researcher"
+        />
       </Helmet>
       <Button
         variant="contained"

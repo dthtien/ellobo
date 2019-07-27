@@ -2,17 +2,21 @@ import React from 'react';
 import AsyncSelect from 'react-select/async';
 import makeAnimated from 'react-select/animated';
 import PropTypes from 'prop-types';
+import { getUnique } from 'utils';
 import { AddressesApi as api } from '../../api';
 
 const animatedComponents = makeAnimated();
 
+// eslint-disable-next-line arrow-body-style
 const loadOptions = inputValue => {
-  return api.getAddressNames({ q: inputValue }).then(response =>
-    response.data.map(({ attributes }) => ({
+  return api.getAddressNames({ q: inputValue }).then(response =>{
+    const suggestions = response.data.map(({ attributes }) => ({
       label: attributes.name,
       value: attributes.alias_name,
-    })),
-  );
+    }));
+
+    return getUnique(suggestions, 'value');
+  });
 };
 
 const AddressNamesSelector = ({
