@@ -2,12 +2,11 @@ import React from 'react';
 import AsyncSelect from 'react-select/async';
 import makeAnimated from 'react-select/animated';
 import PropTypes from 'prop-types';
-import { AddressesApi } from '../../api';
+import { AddressesApi as api } from '../../api';
 
 const animatedComponents = makeAnimated();
 
 const loadOptions = inputValue => {
-  const api = new AddressesApi();
   return api.getAddressNames({ q: inputValue }).then(response =>
     response.data.map(({ attributes }) => ({
       label: attributes.name,

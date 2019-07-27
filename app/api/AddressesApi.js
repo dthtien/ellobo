@@ -1,6 +1,6 @@
 /* eslint-disable quotes */
 import BaseApi from './BaseApi';
-export default class AddressesApi extends BaseApi {
+class AddressesApi extends BaseApi {
   getAddressNames = params =>
     this.httpClient()
       .get(`${this.className}/address_names`, { params })
@@ -9,3 +9,5 @@ export default class AddressesApi extends BaseApi {
         throw err.response;
       });
 }
+
+export default new AddressesApi('addresses');

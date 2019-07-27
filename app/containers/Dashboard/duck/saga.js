@@ -1,6 +1,6 @@
 /* eslint-disable quotes */
 import { call, put, takeLatest, all } from 'redux-saga/effects';
-import { AddressesApi } from '../../../api';
+import { AddressesApi as api } from '../../../api';
 import { GET_ADDRESSES, GET_ADDRESS_NAMES } from './constants';
 import {
   indexSuccess,
@@ -10,7 +10,6 @@ import {
 } from './actions';
 
 function* getAddresses(action) {
-  const api = new AddressesApi('addresses');
   try {
     const data = yield call(api.index, action.payload);
     yield put(indexSuccess(data));
@@ -20,7 +19,6 @@ function* getAddresses(action) {
 }
 
 function* getAddressNamesSaga(action) {
-  const api = new AddressesApi('addresses');
   try {
     const response = yield call(api.getAddressNames, action.payload);
     yield put(getAddressNamesSuccess(response));
