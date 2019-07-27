@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { MoveToInbox, Mail } from '@material-ui/icons';
+import { FeaturedPlayList, AccountBalance } from '@material-ui/icons';
 import {
   Drawer,
   ListItemIcon,
@@ -9,6 +9,7 @@ import {
   ListItemText,
   Paper,
 } from '@material-ui/core';
+import { Link } from 'react-router-dom';
 
 const ThemeWrapper = ({ openMenu, onCloseMenu, children, classes }) => (
   <Paper>
@@ -16,14 +17,19 @@ const ThemeWrapper = ({ openMenu, onCloseMenu, children, classes }) => (
     <Drawer open={openMenu} onClose={onCloseMenu}>
       <div className={classes.menu}>
         <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>
-                {index % 2 === 0 ? <MoveToInbox /> : <Mail />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
+          <ListItem button component={Link} to="/" key="home">
+            <ListItemIcon>
+              <AccountBalance />
+            </ListItemIcon>
+            <ListItemText primary="Home" />
+          </ListItem>
+
+          <ListItem button component={Link} to="/features" key="features">
+            <ListItemIcon>
+              <FeaturedPlayList />
+            </ListItemIcon>
+            <ListItemText primary="Feature list" />
+          </ListItem>
         </List>
       </div>
     </Drawer>

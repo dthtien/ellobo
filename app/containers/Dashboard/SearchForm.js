@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Typography, Button, Grid } from '@material-ui/core';
 import { Search } from '@material-ui/icons';
 import { LoadingIndicator, AddressNamesSelector } from 'app-components';
+import { isEmpty } from 'lodash';
 
 // eslint-disable-next-line consistent-return
 class SearchForm extends Component {
@@ -16,10 +17,17 @@ class SearchForm extends Component {
     return addresses;
   };
 
+  defaultSuggestion = () => {
+    const { suggestions } = this.props;
+    return [suggestions.find(distr => distr.value === 'quan 1')];
+  };
+
   handleSearch = e => {
     const { addresses } = this.state;
+    const districtOne = this.defaultSuggestion();
     e.preventDefault();
-    this.props.onSearch(addresses);
+    const searchingAddress = isEmpty(addresses) ? districtOne : addresses;
+    this.props.onSearch(searchingAddress);
   };
 
   render() {
@@ -46,7 +54,7 @@ class SearchForm extends Component {
               <AddressNamesSelector
                 options={suggestions}
                 customStyles={customStyles}
-                defaultValue={[suggestions[0]]}
+                defaultValue={this.defaultSuggestion()}
                 handleSelectChange={this.handleSelectChange}
               />
             </Grid>
