@@ -15,53 +15,75 @@ import {
   ListItemText,
 } from '@material-ui/core';
 import PropTypes from 'prop-types';
-import { Done, Settings, TouchApp } from '@material-ui/icons';
+import {
+  Search,
+  ShowChartOutlined,
+  FindInPageOutlined,
+  Gradient,
+  Build,
+  Done,
+} from '@material-ui/icons';
 import styles from './styles';
 
 const FeaturePage = ({ classes }) => (
   <div>
     <Helmet>
       <title>Feature Page</title>
-      <meta
-        name="description"
-        content="Feature page of React.js Boilerplate application"
-      />
+      <meta name="description" content="Ellobo - Todo list" />
     </Helmet>
     <H1> Features </H1>
     <List>
-      <ListItem>
+      <ListItem className={classes.listItem}>
         <ListItemIcon className={classes.commpleteText}>
-          <Done />
+          <ShowChartOutlined />
         </ListItemIcon>
         <ListItemText className={classes.commpleteText}>Chart</ListItemText>
-      </ListItem>
-
-      <ListItem>
         <ListItemIcon className={classes.commpleteText}>
           <Done />
         </ListItemIcon>
-        <ListItemText className={classes.commpleteText}>Search</ListItemText>
       </ListItem>
 
-      <ListItem>
+      <ListItem className={classes.listItem}>
+        <ListItemIcon className={classes.commpleteText}>
+          <Search />
+        </ListItemIcon>
+        <ListItemText className={classes.commpleteText}>Search</ListItemText>
+        <ListItemIcon className={classes.commpleteText}>
+          <Done />
+        </ListItemIcon>
+      </ListItem>
+
+      <ListItem className={classes.listItem}>
+        <ListItemIcon className={classes.commpleteText}>
+          <FindInPageOutlined />
+        </ListItemIcon>
+        <ListItemText className={classes.commpleteText}>
+          Search with mix
+        </ListItemText>
+        <ListItemIcon className={classes.commpleteText}>
+          <Done />
+        </ListItemIcon>
+      </ListItem>
+
+      <ListItem className={classes.listItem}>
         <ListItemIcon className={classes.processingText}>
-          <Settings />
+          <Gradient />
         </ListItemIcon>
         <ListItemText className={classes.processingText}>
-          Search with mix
+          Real estate detail page
         </ListItemText>
       </ListItem>
 
-      <ListItem>
+      <ListItem className={classes.listItem}>
         <ListItemIcon className={classes.researchingText}>
-          <TouchApp />
+          <Build />
         </ListItemIcon>
         <ListItemText className={classes.researchingText}>
           Prediction
         </ListItemText>
       </ListItem>
 
-      <ListItem>
+      <ListItem className={classes.listItem}>
         <ListItemText>...</ListItemText>
       </ListItem>
     </List>

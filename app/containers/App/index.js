@@ -13,8 +13,9 @@ import { Switch, Route } from 'react-router-dom';
 import FeaturePage from 'containers/FeaturePage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import Footer from 'components/Footer';
-import { Button, makeStyles, Container } from '@material-ui/core';
+import { Button, makeStyles, Container, Typography } from '@material-ui/core';
 import { Dashboard } from '../pageListAsync';
+import icon from '../../images/icon-512x512.png';
 
 import GlobalStyle from '../../global-styles';
 import ThemeWrapper from '../../components/ThemeWrapper';
@@ -29,6 +30,28 @@ const useStyles = makeStyles({
   },
   menu: {
     width: 250,
+  },
+  iconImage: {
+    width: 30,
+    height: 30,
+  },
+  pageHeader: {
+    textAlign: 'left',
+    marginBottom: 7,
+    marginLeft: 7,
+    marginTop: 7,
+    '& h5': {
+      textTransform: 'capitalize',
+      color: '#2296f3',
+    },
+  },
+  homeButton: {
+    '-webkit-transition': '-webkit-transform .4s ease-in-out',
+    transition: 'transform .4s ease-in-out',
+    '&:hover': {
+      '-webkit-transform': 'rotate(360deg)',
+      transform: 'rotate(360deg)',
+    },
   },
 });
 
@@ -50,13 +73,16 @@ export default function App() {
           content="Ellobo - Real estate market researcher"
         />
       </Helmet>
-      <Button
-        variant="contained"
-        color="primary"
-        onClick={() => setOpenMenu(true)}
-      >
-        Open
-      </Button>
+      <div className={classes.pageHeader}>
+        <Button
+          color="primary"
+          onClick={() => setOpenMenu(true)}
+          className={classes.homeButton}
+        >
+          <img src={icon} alt="icon" className={classes.iconImage} />
+          <Typography variant="h5">Ellobo</Typography>
+        </Button>
+      </div>
       <Container>
         <Switch>
           <Route exact path="/" component={Dashboard} />

@@ -9,7 +9,7 @@ const animatedComponents = makeAnimated();
 
 // eslint-disable-next-line arrow-body-style
 const loadOptions = inputValue => {
-  return api.getAddressNames({ q: inputValue }).then(response =>{
+  return api.getAddressNames({ q: inputValue }).then(response => {
     const suggestions = response.data.map(({ attributes }) => ({
       label: attributes.name,
       value: attributes.alias_name,

@@ -9,7 +9,12 @@ function Footer() {
   return (
     <Wrapper>
       <section>
-        <FormattedMessage {...messages.licenseMessage} />
+        <FormattedMessage
+          {...messages.licenseMessage}
+          values={{
+            bdsUrl: <A href="https://batdongsan.com.vn/">batdongsan</A>,
+          }}
+        />
       </section>
       <section>
         <FormattedMessage
