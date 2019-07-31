@@ -10,3 +10,4 @@ npm-debug.log
 yarn.lock
 .env
 log/capistrano.log
+.vscode/

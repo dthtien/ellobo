@@ -49,6 +49,10 @@ export function AddressDetail({
       loading,
       error,
     };
+    const handleOnClickChart = slug => {
+      history.push(`/addresses/${slug}`);
+      getAddress(slug);
+    };
 
     return (
       <div>
@@ -63,7 +67,10 @@ export function AddressDetail({
             averagePrice={attributes.average_price}
             name={attributes.name}
           />
-          <CompossedLineBarArea addresses={addresses} history={history} />
+          <CompossedLineBarArea
+            addresses={addresses}
+            handleOnClickChart={handleOnClickChart}
+          />
         </div>
       </div>
     );
@@ -97,4 +104,7 @@ const withConnect = connect(
 
 const withStyle = withStyles(styles);
 
-export default withStyle(compose(withConnect)(AddressDetail));
+export default compose(
+  withStyle,
+  withConnect,
+)(AddressDetail);

@@ -53,6 +53,7 @@ export function Dashboard({
   const useStyles = makeStyles(styles);
 
   const { data: names, loading, error } = addressNames;
+  const handleOnClickChart = (slug) => history.push(`/addresses/${slug}`)
   const classes = useStyles();
   let suggestions;
   if (names) {
@@ -68,7 +69,10 @@ export function Dashboard({
           error, names, loading, classes, suggestions, onSearch: handleSearch
         }}
       />
-      <CompossedLineBarArea addresses={addresses} history={history} />
+      <CompossedLineBarArea
+        addresses={addresses}
+        handleOnClickChart={handleOnClickChart}
+      />
     </div>
   );
 }

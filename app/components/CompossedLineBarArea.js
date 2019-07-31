@@ -14,6 +14,7 @@ import {
   ResponsiveContainer,
   ComposedChart,
 } from 'recharts';
+import { withRouter, Redirect } from 'react-router-dom';
 import numeral from 'numeral';
 import { Typography } from '@material-ui/core';
 import LoadingIndicator from './LoadingIndicator';
@@ -108,7 +109,7 @@ function CompossedLineBarArea(props) {
   const {
     classes,
     addresses: { data, error, loading },
-    history
+    handleOnClickChart
   } = props;
 
   if (loading) return <LoadingIndicator />;
@@ -162,7 +163,7 @@ function CompossedLineBarArea(props) {
               strokeWidth={4}
               fill={color.third}
               barSize={35}
-              onClick={({ slug }) => history.push(`/addresses/${slug}`)}
+              onClick={({ slug }) => handleOnClickChart(slug)}
             />
             <Line
               type="monotone"
@@ -183,6 +184,9 @@ function CompossedLineBarArea(props) {
 CompossedLineBarArea.propTypes = {
   classes: PropTypes.object.isRequired,
   addresses: PropTypes.object.isRequired,
+  handleOnClickChart: PropTypes.func.isRequired,
 };
 
-export default withStyles(styles)(CompossedLineBarArea);
+const withStyle = withStyles(styles);
+
+export default withRouter(withStyle(CompossedLineBarArea));

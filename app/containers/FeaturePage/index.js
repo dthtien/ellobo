@@ -66,19 +66,22 @@ const FeaturePage = ({ classes }) => (
       </ListItem>
 
       <ListItem className={classes.listItem}>
-        <ListItemIcon className={classes.processingText}>
+        <ListItemIcon className={classes.commpleteText}>
           <Gradient />
         </ListItemIcon>
-        <ListItemText className={classes.processingText}>
+        <ListItemText className={classes.commpleteText}>
           Real estate detail page
         </ListItemText>
+        <ListItemIcon className={classes.commpleteText}>
+          <Done />
+        </ListItemIcon>
       </ListItem>
 
       <ListItem className={classes.listItem}>
-        <ListItemIcon className={classes.researchingText}>
+        <ListItemIcon className={classes.processingText}>
           <Build />
         </ListItemIcon>
-        <ListItemText className={classes.researchingText}>
+        <ListItemText className={classes.processingText}>
           Prediction
         </ListItemText>
       </ListItem>

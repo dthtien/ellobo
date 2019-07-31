@@ -55,7 +55,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function App() {
+function App() {
   const classes = useStyles();
   const [openMenu, setOpenMenu] = useState(false);
   return (
@@ -96,3 +96,5 @@ export default function App() {
     </ThemeWrapper>
   );
 }
+
+export default App;
