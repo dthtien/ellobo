@@ -44,8 +44,8 @@ export default function reducer(state = initialState, action = {}) {
           'addresses',
           fromJS({
             data: null,
-            loading: true,
-            error: false,
+            loading: false,
+            error: true,
           }),
         );
       });

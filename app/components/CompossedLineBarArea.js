@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { createMuiTheme, withStyles } from '@material-ui/core/styles';
 import ThemePallete from 'utils/themePalette';
 import blue from '@material-ui/core/colors/blue';
-import { LoadingIndicator } from 'app-components';
 import {
   Line,
   Bar,
@@ -17,6 +16,7 @@ import {
 } from 'recharts';
 import numeral from 'numeral';
 import { Typography } from '@material-ui/core';
+import LoadingIndicator from './LoadingIndicator';
 
 const styles = {
   chartFluid: {
@@ -37,6 +37,7 @@ const color = {
 
 const CustomTooltip = ({ active, payload, label }) => {
   if (active) {
+    const { value } = payload[0];
     return (
       <div
         style={{
@@ -46,7 +47,7 @@ const CustomTooltip = ({ active, payload, label }) => {
         }}
       >
         <p style={{ textTransform: 'capitalize' }}>{label}</p>
-        <p className="label">{numeral(payload[0].value).format('0,0')} / m²</p>
+        <p className="label">{numeral(value).format('0,0')} VND/m²</p>
       </div>
     );
   }
@@ -107,6 +108,7 @@ function CompossedLineBarArea(props) {
   const {
     classes,
     addresses: { data, error, loading },
+    history
   } = props;
 
   if (loading) return <LoadingIndicator />;
@@ -115,10 +117,15 @@ function CompossedLineBarArea(props) {
     return <Typography variant="subtitle1">Server error!</Typography>;
   }
   if (data) {
-    const dataGraph = data.map(value => ({
-      name: value.attributes.name,
-      avgPrice: value.attributes.average_price,
-    }));
+    let dataLength = 0;
+    const dataGraph = data.map(value => {
+      dataLength += 1;
+      return {
+        name: value.attributes.name,
+        avgPrice: value.attributes.average_price,
+        slug: value.attributes.slug,
+      };
+    });
 
     return (
       <div className={classes.chartFluid}>
@@ -134,6 +141,7 @@ function CompossedLineBarArea(props) {
               padding={{ right: 100, left: 20 }}
               interval={0}
               tick={<CustomizedXAxisTick />}
+              hide={dataLength > 11}
               tickMargin={20}
               orientation="top"
               axisLine={false}
@@ -154,6 +162,7 @@ function CompossedLineBarArea(props) {
               strokeWidth={4}
               fill={color.third}
               barSize={35}
+              onClick={({ slug }) => history.push(`/addresses/${slug}`)}
             />
             <Line
               type="monotone"
@@ -167,7 +176,8 @@ function CompossedLineBarArea(props) {
       </div>
     );
   }
-  return <LoadingIndicator />;
+
+  return <Typography variant="h6">No data found!</Typography>;
 }
 
 CompossedLineBarArea.propTypes = {

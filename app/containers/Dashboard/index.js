@@ -11,7 +11,7 @@ import { createStructuredSelector } from 'reselect';
 import { useInjectReducer } from 'utils/injectReducer';
 import { useInjectSaga } from 'utils/injectSaga';
 import { makeStyles } from '@material-ui/core';
-import CompossedLineBarArea from './CompossedLineBarArea';
+import { CompossedLineBarArea } from 'components';
 import reducer, {
   addressesSelector,
   saga,
@@ -29,7 +29,8 @@ export function Dashboard({
   getAddresses,
   addressNames,
   // eslint-disable-next-line no-shadow
-  getAddressNames
+  getAddressNames,
+  history,
 }) {
   useInjectReducer({ key, reducer });
   useInjectSaga({ key, saga });
@@ -67,7 +68,7 @@ export function Dashboard({
           error, names, loading, classes, suggestions, onSearch: handleSearch
         }}
       />
-      <CompossedLineBarArea addresses={addresses} />
+      <CompossedLineBarArea addresses={addresses} history={history} />
     </div>
   );
 }
@@ -87,6 +88,7 @@ Dashboard.propTypes = {
   addresses: PropTypes.object.isRequired,
   getAddressNames: PropTypes.func.isRequired,
   addressNames: PropTypes.object.isRequired,
+  history: PropTypes.object.isRequired,
 };
 
 const withConnect = connect(

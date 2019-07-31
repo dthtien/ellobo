@@ -9,3 +9,7 @@ import LoadingIndicator from '../components/LoadingIndicator';
 export const Dashboard = loadable(() => import('./Dashboard/index'), {
   fallback: <LoadingIndicator />,
 });
+
+export const AddressDetail = loadable(() => import('./AddressDetail/index'), {
+  fallback: <LoadingIndicator />,
+});

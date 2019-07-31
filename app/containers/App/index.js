@@ -14,7 +14,7 @@ import FeaturePage from 'containers/FeaturePage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import Footer from 'components/Footer';
 import { Button, makeStyles, Container, Typography } from '@material-ui/core';
-import { Dashboard } from '../pageListAsync';
+import { Dashboard, AddressDetail } from '../pageListAsync';
 import icon from '../../images/icon-512x512.png';
 
 import GlobalStyle from '../../global-styles';
@@ -87,6 +87,7 @@ export default function App() {
         <Switch>
           <Route exact path="/" component={Dashboard} />
           <Route path="/features" component={FeaturePage} />
+          <Route path="/addresses/:id" component={AddressDetail} />
           <Route path="" component={NotFoundPage} />
         </Switch>
       </Container>
