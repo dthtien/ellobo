@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const httpClient = () => {
   const instance = axios.create({
-    baseURL: `${process.env.API_URL}/api/${process.env.API_VERSION}`,
+    baseURL: `api/${process.env.API_VERSION}`,
   });
 
   // instance.interceptors.request.use(
