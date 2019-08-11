@@ -1,9 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Typography, Card, CardContent, Grid } from '@material-ui/core';
+import { Link } from 'react-router-dom';
 import numeral from 'numeral';
 
-const InformationGroup = ({ classes, averagePrice, landCounts, name }) => (
+const InformationGroup = ({
+  classes,
+  averagePrice,
+  landCounts,
+  name,
+  slug,
+}) => (
   <Grid container>
     <Grid item xs={4}>
       <Typography variant="h4" className={classes.districtName}>
@@ -28,13 +35,15 @@ const InformationGroup = ({ classes, averagePrice, landCounts, name }) => (
       <Card className={classes.card}>
         <CardContent>
           <Typography variant="h5">{landCounts}</Typography>
-          <Typography
-            className={classes.title}
-            color="textSecondary"
-            variant="h5"
-          >
-            Selling lands
-          </Typography>
+          <Link to={`/addresses/${slug}/lands`}>
+            <Typography
+              className={classes.title}
+              color="textSecondary"
+              variant="h5"
+            >
+              Selling lands
+            </Typography>
+          </Link>
         </CardContent>
       </Card>
     </Grid>
@@ -46,6 +55,7 @@ InformationGroup.propTypes = {
   averagePrice: PropTypes.number.isRequired,
   landCounts: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
+  slug: PropTypes.string.isRequired,
 };
 
 export default InformationGroup;

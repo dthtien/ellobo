@@ -19,6 +19,11 @@ const styles = theme => ({
     fontWeight: 600,
     textTransform: 'capitalize',
   },
+  descriptionArea: {
+    marginTop: theme.spacing(1),
+    lineHeight: 2,
+    fontFeatureSettings: 'tnum',
+  },
 });
 
 export default styles;

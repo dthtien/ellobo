@@ -13,3 +13,11 @@ export const Dashboard = loadable(() => import('./Dashboard/index'), {
 export const AddressDetail = loadable(() => import('./AddressDetail/index'), {
   fallback: <LoadingIndicator />,
 });
+
+export const Lands = loadable(() => import('./Lands/index'), {
+  fallback: <LoadingIndicator />,
+});
+
+export const LandDetail = loadable(() => import('./LandDetail/index'), {
+  fallback: <LoadingIndicator />,
+});

@@ -1,3 +1,5 @@
+// eslint-disable-next-line import/order
+/* eslint-disable import/no-unresolved */
 /**
  *
  * AddressDetail
@@ -66,6 +68,7 @@ export function AddressDetail({
             landCounts={attributes.land_counts}
             averagePrice={attributes.average_price}
             name={attributes.name}
+            slug={attributes.slug}
           />
           <CompossedLineBarArea
             addresses={addresses}

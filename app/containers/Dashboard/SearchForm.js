@@ -50,7 +50,7 @@ class SearchForm extends Component {
       return (
         <form onSubmit={this.handleSearch} className={classes.form}>
           <Grid container>
-            <Grid item xs={11}>
+            <Grid item xs={10} md={11}>
               <AddressNamesSelector
                 options={suggestions}
                 customStyles={customStyles}
@@ -58,7 +58,7 @@ class SearchForm extends Component {
                 handleSelectChange={this.handleSelectChange}
               />
             </Grid>
-            <Grid xs={1} item className={classes.searchBtn}>
+            <Grid xs={2} md={1} item className={classes.searchBtn}>
               <Button type="submit">
                 <Search />
               </Button>
